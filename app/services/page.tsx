@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, Phone } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
-import { blogPosts, caseExamples, services, siteConfig } from "@/data/site";
+import { blogPosts, services, siteConfig } from "@/data/site";
+import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
 
 const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL || "https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site";
 
@@ -58,7 +59,7 @@ export default function ServicesPage() {
 
     <section className="section soft service-process-section" id="service-process"><div className="shell"><div className="services-heading"><p className="eyebrow">PROCESS</p><h2>상담부터 결과 안내까지<br/>진행 과정을 함께합니다.</h2></div><ol className="service-hub-process">{serviceProcess.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{description}</p></li>)}</ol></div></section>
 
-    <section className="section service-cases"><div className="shell"><div className="services-heading split"><div><p className="eyebrow">WORK EXAMPLES</p><h2>업무 진행 예시</h2><p>실제 성공 결과를 보장하는 사례가 아닌, 자료를 확인하고 절차를 정리하는 방식의 예시입니다.</p></div><Link className="text-link" href="/cases">전체 예시 보기 <ArrowRight/></Link></div><div className="service-case-list">{caseExamples.slice(0, 3).map((example, index) => <article key={example.slug}><span>{String(index + 1).padStart(2, "0")}</span><div><small>{example.status} · {example.category}</small><h3>{example.title}</h3><p>{example.issue}</p></div><Link href={`/cases/${example.slug}`}>사례 보기 <ArrowRight/></Link></article>)}</div></div></section>
+    <section className="section service-cases"><div className="shell"><div className="services-heading split"><div><p className="eyebrow">WORK EXAMPLES</p><h2>업무 진행 예시</h2><p>실제 수행사례가 아닌, 자료를 확인하고 절차를 정리하는 방식의 일반적인 예시입니다.</p></div><Link className="text-link" href="/cases">전체 예시 보기 <ArrowRight/></Link></div><div className="service-case-list">{caseExamples.slice(0, 3).map((example, index) => <article key={example.slug}><span>{String(index + 1).padStart(2, "0")}</span><div><small>업무 진행 예시 · {example.categoryLabel}</small><h3>{example.title}</h3><p>{example.summary}</p></div><Link href={`/cases/${example.slug}`}>진행 예시 보기 <ArrowRight/></Link></article>)}</div></div></section>
 
     <section className="section soft service-blog-section"><div className="shell"><div className="services-heading split"><div><p className="eyebrow">ADMINISTRATIVE INSIGHTS</p><h2>업무와 함께 확인하면 좋은 정보</h2></div><Link className="text-link" href="/blog">행정 정보 블로그 전체보기 <ArrowRight/></Link></div><div className="service-hub-blog-grid">{blogPosts.slice(0, 3).map((post, index) => <article key={post.slug}><div className="service-blog-thumb"><span>{String(index + 1).padStart(2, "0")}</span><small>{post.category}</small></div><div><span>{post.category}</span><h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3><p>{post.summary}</p><small>{post.date}</small><Link href={`/blog/${post.slug}`}>글 보기 <ArrowRight/></Link></div></article>)}</div></div></section>
 

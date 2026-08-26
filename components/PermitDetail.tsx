@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, Building2, Check, ClipboardCheck, ExternalLink, FileCheck2, HelpCircle, MapPin, ShieldCheck, TriangleAlert } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
-import { blogPosts, caseExamples, permitDetail } from "@/data/site";
+import { blogPosts, permitDetail } from "@/data/site";
+import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
 
 const relatedPost = blogPosts.find((post) => post.category === "각종 인허가");
-const relatedExample = caseExamples.find((item) => item.category === "각종 인허가");
+const relatedExample = caseExamples.find((item) => item.category === "licensing");
 const canonical = "https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site/services/permits";
 
 export function PermitDetail() {
@@ -47,7 +48,7 @@ export function PermitDetail() {
 
     <section className="section"><div className="shell permit-faq"><div><p className="eyebrow">FAQ</p><h2>자주 묻는 질문</h2><p>먼저 핵심을 답하고, 개별 사안은 최신 공식 기준으로 다시 확인합니다.</p></div><div className="faq-list">{permitDetail.faqs.map(([question, answer]) => <details key={question}><summary>{question}<span>＋</span></summary><p>{answer}</p></details>)}</div></div></section>
 
-    {(relatedExample || relatedPost) && <section className="section permit-related"><div className="shell"><div className="permit-heading"><p className="eyebrow">RELATED CONTENT</p><h2>관련 진행 예시와 안내 글</h2></div><div className="permit-related-grid">{relatedExample && <article><small>{relatedExample.status}</small><h3>{relatedExample.title}</h3><p>{relatedExample.issue}</p><Link href={`/cases/${relatedExample.slug}`}>진행 예시 보기 <ArrowRight/></Link></article>}{relatedPost && <article><small>발행된 블로그</small><h3>{relatedPost.title}</h3><p>{relatedPost.summary}</p><Link href={`/blog/${relatedPost.slug}`}>안내 글 보기 <ArrowRight/></Link></article>}</div></div></section>}
+    {(relatedExample || relatedPost) && <section className="section permit-related"><div className="shell"><div className="permit-heading"><p className="eyebrow">RELATED CONTENT</p><h2>관련 진행 예시와 안내 글</h2></div><div className="permit-related-grid">{relatedExample && <article><small>업무 진행 예시</small><h3>{relatedExample.title}</h3><p>{relatedExample.summary}</p><Link href={`/cases/${relatedExample.slug}`}>진행 예시 보기 <ArrowRight/></Link></article>}{relatedPost && <article><small>발행된 블로그</small><h3>{relatedPost.title}</h3><p>{relatedPost.summary}</p><Link href={`/blog/${relatedPost.slug}`}>안내 글 보기 <ArrowRight/></Link></article>}</div></div></section>}
 
     <section className="permit-final"><div className="shell"><HelpCircle/><div><p className="eyebrow">CONSULTATION</p><h2>계약과 공사를 시작하기 전에,<br/><strong>사업에 필요한 인허가부터 확인하세요.</strong></h2><p>사업 내용과 예정 장소, 현재 진행 단계를 알려주시면 상담 가능한 업무와 우선 확인할 사항을 안내해 드립니다.</p></div><div className="button-row"><Link className="button gold" href="/contact?service=licensing">인허가 업무 상담하기</Link><Link className="button outline-light" href="/services">전체 업무 분야 보기</Link></div></div></section>
   </>;

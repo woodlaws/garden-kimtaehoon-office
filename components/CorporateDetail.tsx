@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, Building2, Check, ExternalLink, FileText, HelpCircle, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
-import { blogPosts, caseExamples, corporateDetail } from "@/data/site";
+import { blogPosts, corporateDetail } from "@/data/site";
+import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
 
 const relatedPost=blogPosts.find(post=>post.category==="기업·법인 행정");
-const relatedExample=caseExamples.find(item=>item.category==="기업·법인 행정");
+const relatedExample=caseExamples.find(item=>item.category==="corporate");
 const canonical="https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site/services/corporate";
 
 export function CorporateDetail(){
@@ -38,7 +39,7 @@ export function CorporateDetail(){
 
     <section className="section"><div className="shell corporate-faq"><div><p className="eyebrow">FAQ</p><h2>자주 묻는 질문</h2><p>기업 형태와 주무관청에 따라 달라지는 부분을 구분해 안내합니다.</p></div><div className="faq-list">{corporateDetail.faqs.map(([question,answer])=><details key={question}><summary>{question}<span>＋</span></summary><p>{answer}</p></details>)}</div></div></section>
 
-    {(relatedExample||relatedPost)&&<section className="section corporate-related"><div className="shell"><div className="corporate-heading"><p className="eyebrow">RELATED CONTENT</p><h2>관련 진행 예시와 안내 글</h2><p>실제 허가 실적이 확인되지 않아 결과 사례를 만들지 않았습니다.</p></div><div className="corporate-related-grid">{relatedExample&&<article><small>{relatedExample.status}</small><h3>{relatedExample.title}</h3><p>{relatedExample.issue}</p><Link href={`/cases/${relatedExample.slug}`}>진행 예시 보기 <ArrowRight/></Link></article>}{relatedPost&&<article><small>발행된 블로그</small><h3>{relatedPost.title}</h3><p>{relatedPost.summary}</p><Link href={`/blog/${relatedPost.slug}`}>안내 글 보기 <ArrowRight/></Link></article>}</div></div></section>}
+    {(relatedExample||relatedPost)&&<section className="section corporate-related"><div className="shell"><div className="corporate-heading"><p className="eyebrow">RELATED CONTENT</p><h2>관련 진행 예시와 안내 글</h2><p>실제 수행사례가 아닌 일반적인 상황을 바탕으로 한 진행 예시입니다.</p></div><div className="corporate-related-grid">{relatedExample&&<article><small>업무 진행 예시</small><h3>{relatedExample.title}</h3><p>{relatedExample.summary}</p><Link href={`/cases/${relatedExample.slug}`}>진행 예시 보기 <ArrowRight/></Link></article>}{relatedPost&&<article><small>발행된 블로그</small><h3>{relatedPost.title}</h3><p>{relatedPost.summary}</p><Link href={`/blog/${relatedPost.slug}`}>안내 글 보기 <ArrowRight/></Link></article>}</div></div></section>}
 
     <section className="corporate-final"><div className="shell"><HelpCircle/><div><p className="eyebrow">CORPORATE CONSULTATION</p><h2>복잡한 기업 행정업무,<br/><strong>필요한 절차와 담당 영역부터 구분해 드립니다.</strong></h2><p>기업·단체의 형태와 현재 진행 단계, 필요한 업무를 알려주시면 상담 가능한 행정업무와 준비사항을 안내해 드립니다.</p></div><div className="button-row"><Link className="button gold" href="/contact?service=corporate">기업 행정업무 상담하기</Link><Link className="button outline-light" href="/services">전체 업무 분야 보기</Link></div></div></section>
   </>;

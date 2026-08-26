@@ -384,9 +384,3 @@ export const notices = [
   { id: "notice-2", pinned: false, title: "온라인 상담 문의 이용 안내", date: "2026-08-12" },
   { id: "notice-3", pinned: false, title: "사무소 기본정보 확정 후 업데이트 예정", date: "2026-08-01" },
 ];
-
-export const caseExamples = [
-  { slug: "permit-document-review", category: "각종 인허가", title: "인허가 신청 전 구비서류 검토 예시", issue: "신청 전에 관할과 시설 요건, 첨부서류 목록을 확인하는 진행 예시입니다.", status: "업무 진행 예시" },
-  { slug: "disposition-response", category: "행정심판", title: "행정처분 통지 후 대응 절차 검토 예시", issue: "처분 사유와 불복 안내, 제출 자료를 순서대로 점검하는 예시입니다.", status: "업무 진행 예시" },
-  { slug: "corporate-filing", category: "기업·법인 행정", title: "사업 변경에 따른 행정신고 정리 예시", issue: "변경된 사업 내용과 신고 대상, 준비자료를 구분하는 진행 예시입니다.", status: "업무 진행 예시" },
-];
