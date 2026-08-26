@@ -3,7 +3,7 @@ import "./globals.css";
 import { Footer, Header, MobileActions } from "@/components/SiteChrome";
 import { siteConfig } from "@/data/site";
 
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL || "https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site";
+const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL || "https://garden-kimtaehoon-office.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
