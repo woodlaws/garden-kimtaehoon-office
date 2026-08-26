@@ -1,0 +1,11 @@
+import type {Metadata} from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Breadcrumbs, PageHero } from "@/components/Common";
+import { FAQSearch } from "@/components/BoardSearch";
+import { InquiryBoardForm } from "@/components/ConsultationForm";
+import { faqs, notices } from "@/data/site";
+const sections={notices:{title:"공지사항",desc:"사무소 이용과 상담 관련 안내입니다."},resources:{title:"자료실",desc:"업무 안내 자료를 준비하고 있습니다."},faq:{title:"자주 묻는 질문",desc:"상담 전에 많이 묻는 내용을 검색해 보세요."},inquiry:{title:"상담 문의 게시판",desc:"문의는 기본 비공개이며 데이터베이스 연결 후 안전하게 저장됩니다."}} as const;
+export function generateStaticParams(){return Object.keys(sections).map(section=>({section}))}
+export async function generateMetadata({params}:{params:Promise<{section:string}>}):Promise<Metadata>{const{section}=await params;const s=sections[section as keyof typeof sections];return {title:s?.title??"게시판",description:s?.desc,robots:section==="inquiry"?{index:false,follow:false}:undefined}}
+export default async function BoardSection({params}:{params:Promise<{section:string}>}){const{section}=await params;const info=sections[section as keyof typeof sections];if(!info)notFound();return <><PageHero eyebrow="BOARD" title={info.title} description={info.desc}/><Breadcrumbs items={[{label:"게시판",href:"/board"},{label:info.title}]}/><section className="section soft"><div className="shell board-content">{section==="notices"&&<div className="notice-table full">{notices.map((n,i)=><article id={n.id} key={n.id}><div><span>{n.pinned?"중요":String(i+1).padStart(2,"0")}</span><b>{n.title}</b><time>{n.date}</time></div><p>{n.id==="notice-1"?"상담 시 관련 문서 전체와 받은 날짜를 준비해 주세요. 홈페이지의 전화번호와 주소는 고객 확인 후 게시됩니다.":n.id==="notice-2"?"온라인 문의는 데이터베이스 연결 후 이용할 수 있습니다. 연결 전에는 입력 내용이 저장되지 않습니다.":"사무소명, 연락처, 주소, 자격과 등록 정보는 고객 확인 후 중앙 설정에서 업데이트됩니다."}</p></article>)}</div>}{section==="resources"&&<div className="empty-state resource-empty"><h2>자료실을 준비하고 있습니다.</h2><p>확인된 원본 파일이 등록되기 전에는 다운로드 버튼을 제공하지 않습니다.</p><Link className="button outline" href="/blog">행정 정보 블로그 보기</Link></div>}{section==="faq"&&<FAQSearch items={faqs}/>} {section==="inquiry"&&<InquiryBoardForm/>}</div></section></>}
