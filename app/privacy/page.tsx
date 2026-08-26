@@ -1,5 +1,30 @@
-import type {Metadata} from "next";
+import type { Metadata } from "next";
 import { Breadcrumbs, PageHero } from "@/components/Common";
-import { siteConfig } from "@/data/site";
-export const metadata:Metadata={title:"개인정보처리방침",description:"가든 행정사사무소 홈페이지 개인정보 처리 안내입니다.",robots:{index:true,follow:true}};
-export default function PrivacyPage(){return <><PageHero eyebrow="PRIVACY" title="개인정보처리방침" description="상담 신청 전 개인정보 수집·이용 범위와 보관 기준을 확인해 주세요."/><Breadcrumbs items={[{label:"개인정보처리방침"}]}/><section className="section"><div className="shell policy"><div className="sample-notice"><strong>게시 전 법률 검토와 고객 확인 필요</strong><p>아래 내용은 홈페이지 구현을 위한 초안입니다. 실제 연동하는 수집 항목, 보유기간, 위탁·제3자 제공 현황에 맞춰 확정해야 합니다.</p></div><section><h2>1. 수집하는 개인정보 항목</h2><p>상담 신청 시 이름, 연락처, 이메일, 상담 분야, 문의 제목과 내용, 관련 링크 및 첨부파일을 수집할 수 있습니다. 실제 연결 전에는 입력 내용이 서버에 저장되지 않습니다.</p></section><section><h2>2. 수집 및 이용 목적</h2><p>상담 요청 확인, 연락, 업무 가능 여부 검토, 민원 대응과 서비스 개선을 위해 이용합니다.</p></section><section><h2>3. 보유 및 이용 기간</h2><p>상담 종료 또는 이용 목적 달성 후 관련 법령과 내부 기준에 따라 파기합니다. 구체적인 보유기간은 실제 운영 정책 확정 후 기재해야 합니다.</p></section><section><h2>4. 동의 거부 권리</h2><p>개인정보 수집·이용에 동의하지 않을 수 있으나, 필수항목 제공을 거부하면 온라인 상담 이용이 제한될 수 있습니다.</p></section><section><h2>5. 개인정보 보호 문의</h2><p>담당자와 연락처는 고객 확인 후 게시합니다. 현재 이메일: {siteConfig.email}</p></section></div></section></>}
+import { CONTACT_RETENTION_PERIOD } from "@/lib/contact";
+
+export const metadata: Metadata = {
+  title: "개인정보처리방침",
+  description: "가든 행정사사무소의 상담 접수 개인정보 처리 기준을 안내합니다.",
+  alternates: { canonical: "https://garden-kimtaehoon-office.vercel.app/privacy" },
+};
+
+export default function PrivacyPage() {
+  return <>
+    <PageHero eyebrow="PRIVACY" title="개인정보처리방침" description="상담 신청 전 개인정보 수집·이용 범위와 보관 기준을 확인해 주세요."/>
+    <Breadcrumbs items={[{ label: "개인정보처리방침" }]}/>
+    <main className="section"><div className="shell policy">
+      <div className="sample-notice"><strong>운영 정책 초안 · 사업자 최종 확인 필요</strong><p>아래 내용은 현재 홈페이지의 상담 접수 구조를 기준으로 작성했습니다. 실제 저장 API 연결 전 사업자 정보, 문의처, 위탁 현황과 보유기간을 최종 확정해야 합니다.</p></div>
+      <p>가든 행정사사무소는 개인정보 보호법 등 관계 법령을 준수하며, 상담 접수 과정에서 처리하는 개인정보의 기준을 다음과 같이 공개합니다.</p>
+      <section><h2>1. 개인정보 처리 목적</h2><p>온라인 상담 요청 확인, 신청자 연락, 업무 가능 여부 및 범위 검토, 필요한 자료 안내, 상담 이력 관리 목적으로 처리합니다. 고지한 목적 이외의 용도로 이용하지 않습니다.</p></section>
+      <section><h2>2. 수집하는 개인정보 항목</h2><p><b>필수:</b> 상담 분야, 이름, 연락처, 문의 제목, 현재 상황 및 문의 내용, 개인정보 수집·이용 동의 여부</p><p><b>선택:</b> 회사명 또는 단체명, 이메일, 희망 상담 방식, 연락 희망시간, 참고 링크, 추가 참고사항</p><p>접수 과정에서 접수일시, 유입 페이지, 브라우저 정보, 페이지 URL이 함께 처리될 수 있습니다. 전체 IP 주소는 문의 데이터로 장기 저장하지 않습니다.</p></section>
+      <section><h2>3. 개인정보 보유 및 이용기간</h2><p>상담 접수 정보는 <b>{CONTACT_RETENTION_PERIOD}</b> 보유한 뒤 지체 없이 파기하는 것을 운영 정책 초안으로 합니다. 관계 법령에 별도 보존 의무가 있거나 분쟁 대응에 필요한 경우 해당 법령과 목적에 필요한 기간 동안만 별도 보관할 수 있습니다.</p></section>
+      <section><h2>4. 개인정보 파기 절차 및 방법</h2><p>보유기간 경과 또는 처리 목적 달성 시 해당 정보를 파기 대상으로 분류하고 지체 없이 삭제합니다. 전자적 파일은 복구하기 어려운 방법으로 삭제하며, 출력물은 분쇄 또는 소각합니다.</p></section>
+      <section><h2>5. 개인정보의 제3자 제공</h2><p>현재 상담 접수 정보를 제3자에게 일상적으로 제공하지 않습니다. 법률에 특별한 근거가 있거나 정보주체의 별도 동의를 받은 경우에만 필요한 범위에서 제공합니다.</p></section>
+      <section><h2>6. 개인정보 처리업무의 위탁</h2><p>홈페이지 제공을 위해 Vercel의 호스팅 인프라를 이용합니다. 상담 저장용 Google Apps Script·Google Sheets 또는 별도 저장 API는 실제 연결된 서비스와 수탁자, 위탁 업무, 보관 위치를 확인한 뒤 이 방침에 반영합니다. 현재 설정되지 않은 서비스를 이용 중인 것처럼 표시하지 않습니다.</p></section>
+      <section><h2>7. 정보주체의 권리와 행사방법</h2><p>정보주체는 본인의 개인정보 열람, 정정·삭제, 처리정지 및 동의 철회를 요청할 수 있습니다. 본인 확인이 필요한 경우 관련 법령이 허용하는 범위에서 최소한의 확인 절차를 거칠 수 있으며, 대리인을 통한 요청도 관계 법령에 따라 처리합니다.</p></section>
+      <section><h2>8. 개인정보의 안전성 확보조치</h2><p>접근 권한 최소화, 전송 구간 보호, 비밀값의 서버 환경변수 관리, 입력값 검증과 안전 처리, 반복·자동 제출 방지, 접속 기록 점검 등 필요한 기술적·관리적 조치를 적용합니다. 상담 폼에서는 주민등록번호, 여권번호, 계좌정보 등 민감정보와 원본서류를 수집하지 않습니다.</p></section>
+      <section><h2>9. 개인정보 보호책임자 또는 문의처</h2><p>개인정보 보호책임자의 이름과 개인정보 관련 문의 전화·이메일은 실제 사업자가 확인한 뒤 공개합니다. 온라인 상담 폼에는 민감정보를 입력하지 말아 주세요.</p></section>
+      <section><h2>10. 개인정보 처리방침 변경에 관한 사항</h2><p>이 방침의 내용이 변경되는 경우 시행일과 변경 내용을 홈페이지에 공개합니다. 최초 시행일과 개정일은 사업자 최종 확인 후 기재합니다.</p></section>
+    </div></main>
+  </>;
+}

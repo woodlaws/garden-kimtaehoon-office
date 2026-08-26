@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site";
 
 const nav = [
   ["/", "홈"], ["/about", "행정사 소개"], ["/services", "업무 분야"],
-  ["/cases", "업무 사례"], ["/blog", "블로그"], ["/board", "게시판"], ["/consultation", "상담 신청"],
+  ["/cases", "업무 사례"], ["/blog", "블로그"], ["/board", "게시판"], ["/contact", "상담 신청"],
 ];
 
 export function Header() {
@@ -31,7 +31,7 @@ export function Header() {
         <nav className="desktop-nav" aria-label="주요 메뉴">
           {nav.map(([href, label]) => <Link key={href} className={path === href || (href !== "/" && path.startsWith(href)) ? "active" : ""} href={href}>{label}</Link>)}
         </nav>
-        <Link className="button gold header-cta" href="/consultation">빠른 상담</Link>
+        <Link className="button gold header-cta" href="/contact">빠른 상담</Link>
         <button className="menu-button" onClick={() => setOpen(true)} aria-expanded={open} aria-controls="mobile-menu" aria-label="메뉴 열기"><Menu /></button>
       </div>
     </header>
@@ -54,7 +54,9 @@ export function Footer() {
 }
 
 export function MobileActions() {
+  const path = usePathname();
+  if (path === "/contact") return null;
   return <nav className="mobile-actions" aria-label="빠른 상담 메뉴">
-    <span aria-disabled="true"><Phone/>전화 상담</span><span aria-disabled="true"><MessageCircle/>카카오톡</span><Link href="/consultation"><FileText/>온라인 문의</Link>
+    <span aria-disabled="true"><Phone/>전화 상담</span><span aria-disabled="true"><MessageCircle/>카카오톡</span><Link href="/contact"><FileText/>온라인 문의</Link>
   </nav>;
 }

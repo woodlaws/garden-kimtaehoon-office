@@ -10,5 +10,5 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
 }
 
 export function CTA() {
-  return <section className="cta-band"><div className="shell cta-inner"><div><p className="eyebrow">CONSULTATION</p><h2>어떤 행정 절차로 고민하고 계신가요?</h2><p>자료를 확인한 뒤 가능한 절차와 준비사항을 차분히 안내합니다.</p></div><div className="button-row"><Link className="button gold" href="/consultation">온라인 상담 신청</Link><Link className="button outline-light" href="/services">업무 분야 보기</Link></div></div></section>;
+  return <section className="cta-band"><div className="shell cta-inner"><div><p className="eyebrow">CONSULTATION</p><h2>어떤 행정 절차로 고민하고 계신가요?</h2><p>자료를 확인한 뒤 가능한 절차와 준비사항을 차분히 안내합니다.</p></div><div className="button-row"><Link className="button gold" href="/contact">온라인 상담 신청</Link><Link className="button outline-light" href="/services">업무 분야 보기</Link></div></div></section>;
 }

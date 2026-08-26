@@ -35,7 +35,7 @@ export function ImmigrationVisaDetail() {
           <p className="eyebrow">IMMIGRATION & VISA</p>
           <h1>출입국·비자,<br/><strong>현재 상황부터 정확히</strong> 확인합니다.</h1>
           <p>체류기간 연장과 자격 변경, 초청·등록·영주·국적 절차는 개인의 이력과 목적에 따라 달라집니다. 국적, 현재 체류자격, 만료일을 기준으로 필요한 다음 단계를 정리해 드립니다.</p>
-          <div className="button-row"><Link className="button gold" href="/consultation?service=immigration">출입국·비자 상담 신청 <ArrowRight/></Link><a className="button outline-light" href="#quick-check">내 상황 빠르게 확인</a></div>
+          <div className="button-row"><Link className="button gold" href="/contact?service=immigration">출입국·비자 상담 신청 <ArrowRight/></Link><a className="button outline-light" href="#quick-check">내 상황 빠르게 확인</a></div>
         </div>
         <aside aria-label="상담 전 확인사항">
           <Globe2/>
@@ -49,7 +49,7 @@ export function ImmigrationVisaDetail() {
 
     <section className="section immigration-quick" id="quick-check"><div className="shell">
       <div className="immigration-heading"><p className="eyebrow">QUICK CHECK</p><h2>지금 어떤 문제로 확인이 필요한가요?</h2><p>가장 가까운 항목을 선택하면 출입국·비자 상담 항목으로 이어집니다.</p></div>
-      <div className="immigration-question-grid">{immigrationDetail.quickQuestions.map((question, index) => <Link className="immigration-question-card" key={question} href="/consultation?service=immigration"><span className="immigration-question-number">{String(index + 1).padStart(2, "0")}</span><strong className="immigration-question-title">{question}</strong><p className="immigration-question-description">{quickDescriptions[index]}</p><span className="immigration-question-action">상담 항목 선택 <ArrowRight/></span></Link>)}</div>
+      <div className="immigration-question-grid">{immigrationDetail.quickQuestions.map((question, index) => <Link className="immigration-question-card" key={question} href="/contact?service=immigration"><span className="immigration-question-number">{String(index + 1).padStart(2, "0")}</span><strong className="immigration-question-title">{question}</strong><p className="immigration-question-description">{quickDescriptions[index]}</p><span className="immigration-question-action">상담 항목 선택 <ArrowRight/></span></Link>)}</div>
     </div></section>
 
     <section className="section soft"><div className="shell">
@@ -83,6 +83,6 @@ export function ImmigrationVisaDetail() {
 
     {relatedPost && <section className="section immigration-related"><div className="shell immigration-related-inner"><div><p className="eyebrow">RELATED GUIDE</p><h2>체류자격 변경 전 확인할 항목</h2><p>{relatedPost.summary}</p></div><Link className="button outline" href={`/blog/${relatedPost.slug}`}>관련 글 읽기 <ArrowRight/></Link></div></section>}
 
-    <section className="immigration-final"><div className="shell"><HelpCircle/><div><p className="eyebrow">CONSULTATION</p><h2>내 상황에 맞는 출입국 절차,<br/><strong>기초 사실부터 함께 확인하겠습니다.</strong></h2><p>국적, 현재 체류자격, 만료일과 원하는 활동을 알려주세요. 민감한 식별정보는 입력하지 않아도 됩니다.</p></div><Link className="button gold" href="/consultation?service=immigration">출입국·비자 상담 신청 <ArrowRight/></Link></div></section>
+    <section className="immigration-final"><div className="shell"><HelpCircle/><div><p className="eyebrow">CONSULTATION</p><h2>내 상황에 맞는 출입국 절차,<br/><strong>기초 사실부터 함께 확인하겠습니다.</strong></h2><p>국적, 현재 체류자격, 만료일과 원하는 활동을 알려주세요. 민감한 식별정보는 입력하지 않아도 됩니다.</p></div><Link className="button gold" href="/contact?service=immigration">출입국·비자 상담 신청 <ArrowRight/></Link></div></section>
   </>;
 }
