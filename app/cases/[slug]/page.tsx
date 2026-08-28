@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { AlertTriangle, ArrowRight, Check, FileText, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
 import { CASE_EXAMPLE_NOTICE, publishedCaseExamples } from "@/data/case-examples";
+import { breadcrumbJsonLd, jsonLd, publicMetadata, siteUrl } from "@/lib/site";
 
-const origin = process.env.NEXT_PUBLIC_SITE_URL || "https://garden-kimtaehoon-office.vercel.app";
 
 export function generateStaticParams() { return publishedCaseExamples.map(item => ({ slug: item.slug })); }
 
@@ -15,8 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!item) return { title: "업무 진행 예시" };
   const title = `${item.title} | 업무 진행 예시`;
   const description = `${item.categoryLabel} 업무의 일반적인 상황을 바탕으로 확인사항, 준비자료와 검토 과정을 안내합니다. 실제 수행 사례가 아닙니다.`;
-  const url = `${origin}/cases/${item.slug}`;
-  return { title: { absolute: `${title} | 김태훈 행정사` }, description, alternates: { canonical: url }, openGraph: { title, description, url, type: "website", images: [] }, twitter: { card: "summary", title, description, images: [] } };
+  return publicMetadata({ title: `${title} | 김태훈 행정사`, description, path: `/cases/${item.slug}` });
 }
 
 export default async function CaseDetail({ params }: { params: Promise<{ slug: string }> }) {
@@ -24,13 +23,13 @@ export default async function CaseDetail({ params }: { params: Promise<{ slug: s
   const item = publishedCaseExamples.find(value => value.slug === slug);
   if (!item) notFound();
   const others = publishedCaseExamples.filter(value => value.slug !== item.slug).slice(0, 3);
-  const url = `${origin}/cases/${item.slug}`;
-  const structuredData = { "@context": "https://schema.org", "@graph": [
-    { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "홈", item: origin }, { "@type": "ListItem", position: 2, name: "업무 진행 예시", item: `${origin}/cases` }, { "@type": "ListItem", position: 3, name: item.title, item: url }] },
-    { "@type": "WebPage", name: `${item.title} | 업무 진행 예시`, description: item.summary, url, datePublished: item.publishedAt, dateModified: item.updatedAt, about: { "@type": "Thing", name: item.categoryLabel }, isPartOf: { "@type": "WebSite", name: "김태훈 행정사 홈페이지", url: origin } },
+  const url = siteUrl(`/cases/${item.slug}`);
+  const structuredData = { "@graph": [
+    breadcrumbJsonLd([{ name: "홈", path: "/" }, { name: "업무 진행 예시", path: "/cases" }, { name: item.title, path: `/cases/${item.slug}` }]),
+    { "@type": "WebPage", name: `${item.title} | 업무 진행 예시`, description: item.summary, url, datePublished: item.publishedAt, dateModified: item.updatedAt, about: { "@type": "Thing", name: item.categoryLabel }, isPartOf: { "@type": "WebSite", name: "김태훈 행정사 홈페이지", url: siteUrl("/") } },
   ] };
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }}/>
     <Breadcrumbs items={[{ label: "업무 진행 예시", href: "/cases" }, { label: item.title }]}/>
     <article className="case-detail">
       <header className="case-detail-hero"><div className="shell"><div className="case-detail-meta"><span>업무 진행 예시</span><b>{item.categoryLabel}</b></div><h1>{item.title}</h1><p>{item.summary}</p><div className="case-detail-notice"><ShieldCheck/><span>{CASE_EXAMPLE_NOTICE}</span></div></div></header>

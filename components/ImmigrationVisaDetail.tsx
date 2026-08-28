@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Check, Clock3, ExternalLink, FileCheck2, Globe2, HelpCircle, ShieldCheck, TriangleAlert } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
 import { blogPosts, immigrationDetail, services } from "@/data/site";
+import { siteUrl } from "@/lib/site";
 
 const service = services.find((item) => item.slug === "immigration-visa")!;
 const relatedPost = blogPosts.find((post) => service.blogCategories.includes(post.category));
@@ -17,7 +18,7 @@ const quickDescriptions = [
 ] as const;
 
 export function ImmigrationVisaDetail() {
-  const canonical = "https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site/services/immigration-visa";
+  const canonical = siteUrl("/services/immigration-visa");
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [

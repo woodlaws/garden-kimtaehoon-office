@@ -4,16 +4,13 @@ import { ArrowRight, Check, Phone } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
 import { blogPosts, services, siteConfig } from "@/data/site";
 import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
+import { breadcrumbJsonLd, jsonLd, publicMetadata, siteUrl } from "@/lib/site";
 
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL || "https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site";
-
-export const metadata: Metadata = {
-  title: { absolute: "업무 분야 | 김태훈 행정사·가든 행정사사무소" },
+export const metadata: Metadata = publicMetadata({
+  title: "업무 분야 | 김태훈 행정사·가든 행정사사무소",
   description: "출입국·비자, 기업행정, 각종 인허가, 행정심판, 토지·부동산 행정, 내용증명과 행정서류 등 김태훈 행정사의 주요 업무 분야를 안내합니다.",
-  alternates: { canonical: "/services" },
-  openGraph: { title: "업무 분야 | 김태훈 행정사·가든 행정사사무소", description: "현재 상황에 맞는 행정업무와 준비사항, 진행 절차를 확인하세요.", url: "/services", type: "website", locale: "ko_KR", images: [] },
-  twitter: { card: "summary", title: "김태훈 행정사 업무 분야", description: "6개 주요 행정업무와 상담 진행 방식을 안내합니다.", images: [] },
-};
+  path: "/services",
+});
 
 const serviceFaqs = [
   ["어떤 업무에 해당하는지 몰라도 상담할 수 있나요?", "네. 현재 상황과 받은 문서, 원하는 처리 방향을 알려주시면 상담 가능한 업무인지 먼저 확인합니다. 정확한 분류는 관련 자료를 확인한 뒤 안내할 수 있습니다."],
@@ -37,14 +34,14 @@ const serviceProcess = [
 
 export default function ServicesPage() {
   const orderedServices = [...services].sort((a, b) => a.order - b.order);
-  const structuredData = { "@context": "https://schema.org", "@graph": [
-    { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "홈", item: siteOrigin }, { "@type": "ListItem", position: 2, name: "업무 분야", item: `${siteOrigin}/services` }] },
-    { "@type": "CollectionPage", name: "김태훈 행정사 업무 분야", url: `${siteOrigin}/services`, mainEntity: { "@type": "ItemList", itemListElement: orderedServices.map((service, index) => ({ "@type": "ListItem", position: index + 1, item: { "@type": "Service", name: service.title, description: service.detail, url: `${siteOrigin}${service.detailPath}`, provider: { "@type": "ProfessionalService", name: siteConfig.name, url: siteOrigin } } })) } },
+  const structuredData = { "@graph": [
+    breadcrumbJsonLd([{ name: "홈", path: "/" }, { name: "업무 분야", path: "/services" }]),
+    { "@type": "CollectionPage", name: "김태훈 행정사 업무 분야", url: siteUrl("/services"), mainEntity: { "@type": "ItemList", itemListElement: orderedServices.map((service, index) => ({ "@type": "ListItem", position: index + 1, item: { "@type": "Service", name: service.title, description: service.detail, url: siteUrl(service.detailPath), provider: { "@type": "ProfessionalService", name: siteConfig.name, url: siteUrl("/") } } })) } },
     { "@type": "FAQPage", mainEntity: serviceFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
   ] };
 
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }}/>
     <section className="services-hero"><div className="shell services-hero-inner">
       <div className="services-hero-copy"><p className="eyebrow">ADMINISTRATIVE SERVICES</p><h1>복잡한 행정업무,<br/><strong>상황에 맞는 절차를 안내합니다.</strong></h1><p>인허가부터 기업행정·행정심판·출입국 업무까지<br/>현재 상황을 확인하고 필요한 절차와 준비사항을 안내해 드립니다.</p><div className="button-row"><a className="button gold" href="#service-finder">내 업무 분야 찾기</a><Link className="button outline-light" href="/contact">상담 신청하기</Link></div></div>
       <div className="services-hero-art" aria-hidden="true"><span/><span/><span/><div><b>01</b><i/><i/><i/></div><div><b>02</b><i/><i/></div></div>

@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
 import { blogPosts, services, siteConfig } from "@/data/site";
+import { breadcrumbJsonLd, jsonLd, publicMetadata, siteUrl } from "@/lib/site";
 
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL || "https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site";
-
-export const metadata: Metadata = {
-  title: { absolute: "김태훈 행정사 소개 | 가든 행정사사무소" },
+export const metadata: Metadata = publicMetadata({
+  title: "김태훈 행정사 소개 | 가든 행정사사무소",
   description: "가든 행정사사무소 김태훈 행정사의 주요 경력, 전문 업무, 상담 원칙과 업무 진행 방식을 안내합니다.",
-  alternates: { canonical: "/about" },
-  openGraph: { title: "김태훈 행정사 소개 | 가든 행정사사무소", description: "김태훈 행정사의 전문 업무, 상담 원칙과 책임 있는 업무 진행 방식을 소개합니다.", url: "/about", type: "profile", locale: "ko_KR", images: [{ url: "/images/mockup-source.png", width: 718, height: 2188, alt: "가든 행정사사무소 대표 행정사 김태훈" }] },
-  twitter: { card: "summary_large_image", title: "김태훈 행정사 소개", description: "정확함과 책임으로 함께하는 김태훈 행정사를 소개합니다.", images: ["/images/mockup-source.png"] },
-};
+  path: "/about",
+});
 
 const trustPrinciples = [
   ["충분히 듣고 정확하게 진단합니다", "의뢰인의 상황과 목적을 먼저 확인하고 필요한 행정절차를 검토합니다."],
@@ -29,16 +27,16 @@ const processDescriptions = [
 const aboutProcessSteps = ["상담 접수", "현재 상황 및 자료 확인", "필요한 절차와 준비서류 안내", "계약 및 업무 착수", "진행 상황 공유", "결과 안내 및 사후 확인"] as const;
 
 export default function AboutPage() {
-  const structuredData = { "@context": "https://schema.org", "@graph": [
-    { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "홈", item: siteOrigin }, { "@type": "ListItem", position: 2, name: "행정사 소개", item: `${siteOrigin}/about` }] },
-    { "@type": "Person", "@id": `${siteOrigin}/about#kim-taehoon`, name: "김태훈", jobTitle: "행정사", url: `${siteOrigin}/about`, image: `${siteOrigin}/images/mockup-source.png`, worksFor: { "@type": "ProfessionalService", "@id": `${siteOrigin}/#office`, name: siteConfig.name, url: siteOrigin }, knowsAbout: services.map((service) => service.title) },
+  const structuredData = { "@graph": [
+    breadcrumbJsonLd([{ name: "홈", path: "/" }, { name: "행정사 소개", path: "/about" }]),
+    { "@type": "Person", "@id": `${siteUrl("/about")}#kim-taehoon`, name: "김태훈", jobTitle: "행정사", url: siteUrl("/about"), image: siteUrl("/images/profile-about.webp"), worksFor: { "@type": "ProfessionalService", "@id": `${siteUrl("/")}#office`, name: siteConfig.name, url: siteUrl("/") }, knowsAbout: services.map((service) => service.title) },
   ] };
 
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
     <section className="about-hero"><div className="shell about-hero-grid">
       <div className="about-hero-copy"><p className="eyebrow">ABOUT ADMINISTRATIVE ATTORNEY</p><h1><span>사람을 향한 행정,</span><strong>정확함과 책임으로</strong><strong>답합니다.</strong></h1><p>복잡한 행정절차를 의뢰인의 눈높이에서 설명하고,<br/>필요한 서류와 진행 과정을 꼼꼼하게 안내합니다.</p><nav className="about-anchor-nav" aria-label="행정사 소개 페이지 바로가기"><a href="#greeting">인사말</a><a href="#profile">프로필</a><a href="#principles">업무 원칙</a><a href="#expertise">전문 업무</a></nav></div>
-      <div className="about-hero-visual"><div className="about-hero-photo"><img src="/images/mockup-source.png" alt="가든 행정사사무소 대표 행정사 김태훈"/></div><ul className="about-trust-tags" aria-label="김태훈 행정사의 업무 방식"><li>직접 상담</li><li>직접 업무 수행</li><li>단계별 진행 안내</li><li>실무 중심 행정 정보</li></ul></div>
+      <div className="about-hero-visual"><div className="about-hero-photo"><Image src="/images/profile-about.webp" alt="가든 행정사사무소 대표 행정사 김태훈" fill sizes="(max-width: 780px) calc(100vw - 32px), 480px"/></div><ul className="about-trust-tags" aria-label="김태훈 행정사의 업무 방식"><li>직접 상담</li><li>직접 업무 수행</li><li>단계별 진행 안내</li><li>실무 중심 행정 정보</li></ul></div>
     </div></section>
     <Breadcrumbs items={[{ label: "행정사 소개" }]}/>
 
@@ -51,7 +49,7 @@ export default function AboutPage() {
 
     <section className="section about-principles-section" id="principles"><div className="shell"><div className="about-section-heading light"><p className="eyebrow">WORK PRINCIPLES</p><h2>의뢰인이 안심할 수 있는 업무 원칙</h2></div><ol className="about-principles">{trustPrinciples.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol></div></section>
 
-    <section className="section" id="expertise"><div className="shell"><div className="about-section-heading split"><div><p className="eyebrow">EXPERTISE</p><h2>행정의 여러 분야에서<br/>상황에 맞는 절차를 안내합니다.</h2></div><Link className="text-link" href="/services">전체 업무 분야 보기 <ArrowRight/></Link></div><div className="about-service-grid">{services.map((service, index) => <article key={service.slug}><span>{String(index + 1).padStart(2, "0")}</span><h3>{service.title}</h3><p>{service.short}</p><Link href={`/services/${service.slug}`}>자세히 보기 <ArrowRight/></Link></article>)}</div></div></section>
+    <section className="section" id="expertise"><div className="shell"><div className="about-section-heading split"><div><p className="eyebrow">EXPERTISE</p><h2>행정의 여러 분야에서<br/>상황에 맞는 절차를 안내합니다.</h2></div><Link className="text-link" href="/services">전체 업무 분야 보기 <ArrowRight/></Link></div><div className="about-service-grid">{services.map((service, index) => <article key={service.slug}><span>{String(index + 1).padStart(2, "0")}</span><h3>{service.title}</h3><p>{service.short}</p><Link href={service.detailPath}>자세히 보기 <ArrowRight/></Link></article>)}</div></div></section>
 
     <section className="section soft about-process-section"><div className="shell"><div className="about-section-heading"><p className="eyebrow">PROCESS</p><h2>상담부터 결과 안내까지<br/>진행 과정을 함께합니다.</h2></div><ol className="about-process">{aboutProcessSteps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span><h3>{step}</h3><p>{processDescriptions[index]}</p></li>)}</ol></div></section>
 

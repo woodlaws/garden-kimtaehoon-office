@@ -1,6 +1,4 @@
 import type {Metadata} from "next";
-import { LockKeyhole, MessageSquareText, Paperclip, ShieldCheck } from "lucide-react";
-import { Breadcrumbs, PageHero } from "@/components/Common";
-import { ConsultationForm } from "@/components/ConsultationForm";
+import { permanentRedirect } from "next/navigation";
 export const metadata:Metadata={title:"상담 신청",description:"행정업무 상담을 위해 현재 상황과 관련 자료를 정리해 주세요.",robots:{index:false,follow:true}};
-export default function ConsultationPage(){return <><PageHero eyebrow="CONSULTATION" title="현재 상황을 알려주시면 확인할 순서를 안내합니다." description="민감정보는 최소한으로 입력하고, 주민등록번호나 외국인등록번호 등은 온라인 문의에 적지 마세요."/><Breadcrumbs items={[{label:"상담 신청"}]}/><section className="section soft"><div className="shell consultation-layout"><aside><div><MessageSquareText/><h2>상담 진행 방식</h2><ol><li>문의 내용 확인</li><li>필요한 추가자료 안내</li><li>상담 일정과 방식 협의</li><li>업무 범위·비용 안내</li></ol></div><div><Paperclip/><h2>준비하면 좋은 정보</h2><ul><li>받은 문서의 명칭과 날짜</li><li>현재까지 진행한 내용</li><li>원하는 처리 방향</li><li>정해진 기한이 있는지 여부</li></ul></div><div className="privacy-callout"><ShieldCheck/><div><b>개인정보 보호 안내</b><p>문의 내용은 공개 페이지에 표시하지 않으며, 백엔드 연결 전에는 저장되지 않습니다.</p></div></div></aside><div><div className="connection-status"><b>온라인 접수 상태</b><span>저장·알림 기능 연결 준비 중</span></div><ConsultationForm/></div></div></section></>}
+export default function ConsultationPage(){permanentRedirect("/contact")}

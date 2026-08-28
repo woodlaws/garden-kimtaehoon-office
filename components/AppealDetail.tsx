@@ -3,10 +3,11 @@ import { ArrowRight, CalendarDays, Check, CircleAlert, ExternalLink, FileText, H
 import { Breadcrumbs } from "@/components/Common";
 import { appealDetail, blogPosts } from "@/data/site";
 import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
+import { siteUrl } from "@/lib/site";
 
 const relatedPost = blogPosts.find((post) => post.category === "행정심판");
 const relatedExample = caseExamples.find((item) => item.category === "appeal");
-const canonical = "https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site/services/appeal";
+const canonical = siteUrl("/services/appeal");
 
 export function AppealDetail() {
   const structuredData = {"@context":"https://schema.org","@graph":[

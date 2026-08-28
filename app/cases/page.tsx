@@ -3,27 +3,22 @@ import { Check, ClipboardCheck, FileSearch, ListChecks, SearchCheck } from "luci
 import { Breadcrumbs } from "@/components/Common";
 import { CaseExamplesGrid } from "@/components/CaseExamplesGrid";
 import { CASE_EXAMPLE_NOTICE, publishedCaseExamples } from "@/data/case-examples";
+import { breadcrumbJsonLd, jsonLd, publicMetadata, siteUrl } from "@/lib/site";
 
-const origin = process.env.NEXT_PUBLIC_SITE_URL || "https://garden-kimtaehoon-office.vercel.app";
 const title = "업무 진행 예시 | 김태훈 행정사";
 const description = "출입국·비자, 인허가, 행정심판, 기업행정, 부동산 행정 및 행정서류 업무의 일반적인 검토 과정과 준비자료를 안내합니다.";
 
-export const metadata: Metadata = {
-  title: { absolute: title }, description,
-  alternates: { canonical: `${origin}/cases` },
-  openGraph: { title, description, url: `${origin}/cases`, type: "website", images: [] },
-  twitter: { card: "summary", title, description, images: [] },
-};
+export const metadata: Metadata = publicMetadata({ title, description, path: "/cases" });
 
 const keywords = [[SearchCheck, "상황 확인"], [FileSearch, "필요자료 검토"], [ListChecks, "진행절차 안내"], [ClipboardCheck, "업무 범위 확인"]] as const;
 
 export default function CasesPage() {
-  const structuredData = { "@context": "https://schema.org", "@graph": [
-    { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "홈", item: origin }, { "@type": "ListItem", position: 2, name: "업무 진행 예시", item: `${origin}/cases` }] },
-    { "@type": "CollectionPage", name: title, description, url: `${origin}/cases`, mainEntity: { "@type": "ItemList", itemListElement: publishedCaseExamples.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.title, url: `${origin}/cases/${item.slug}` })) } },
+  const structuredData = { "@graph": [
+    breadcrumbJsonLd([{ name: "홈", path: "/" }, { name: "업무 진행 예시", path: "/cases" }]),
+    { "@type": "CollectionPage", name: title, description, url: siteUrl("/cases"), mainEntity: { "@type": "ItemList", itemListElement: publishedCaseExamples.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.title, url: siteUrl(`/cases/${item.slug}`) })) } },
   ] };
   return <>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }}/>
     <section className="cases-hero"><div className="shell cases-hero-grid"><div><p className="eyebrow">WORK EXAMPLES</p><h1>상황별 업무 진행 과정을<br/><strong>쉽게 확인해보세요</strong></h1><p>출입국·비자, 인허가, 행정심판, 기업행정 등 주요 업무가 어떤 과정으로 검토되고 진행되는지 일반적인 예시를 통해 안내합니다.</p></div><ul>{keywords.map(([Icon, label]) => <li key={label}><Icon/><span>{label}</span></li>)}</ul></div></section>
     <Breadcrumbs items={[{ label: "업무 진행 예시" }]}/>
     <section className="section cases-index"><div className="shell">

@@ -116,7 +116,7 @@ export const services: Service[] = [
     documents: ["토지·건축물 관련 공부", "위치도와 이용 계획", "기관 안내 또는 기존 신청 자료"],
   },
   {
-    slug: "investigation-documents",
+    slug: "documents",
     title: "사실조사·내용증명·행정서류",
     short: "사실관계 조사, 내용증명, 각종 행정서류 작성",
     detail: "사실관계와 자료를 정리하여 목적에 맞는 내용증명과 각종 행정서류 작성을 지원합니다.",

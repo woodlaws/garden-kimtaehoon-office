@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import { Breadcrumbs, PageHero } from "@/components/Common";
 import { CONTACT_RETENTION_PERIOD } from "@/lib/contact";
+import { breadcrumbJsonLd, jsonLd, publicMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "개인정보처리방침",
+export const metadata: Metadata = publicMetadata({
+  title: "개인정보처리방침 | 가든 행정사사무소",
   description: "가든 행정사사무소의 상담 접수 개인정보 처리 기준을 안내합니다.",
-  alternates: { canonical: "https://garden-kimtaehoon-office.vercel.app/privacy" },
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd(breadcrumbJsonLd([{name:"홈",path:"/"},{name:"개인정보처리방침",path:"/privacy"}]))}}/>
     <PageHero eyebrow="PRIVACY" title="개인정보처리방침" description="상담 신청 전 개인정보 수집·이용 범위와 보관 기준을 확인해 주세요."/>
     <Breadcrumbs items={[{ label: "개인정보처리방침" }]}/>
-    <main className="section"><div className="shell policy">
+    <section className="section"><div className="shell policy">
       <div className="sample-notice"><strong>운영 정책 초안 · 사업자 최종 확인 필요</strong><p>아래 내용은 현재 홈페이지의 상담 접수 구조를 기준으로 작성했습니다. 실제 저장 API 연결 전 사업자 정보, 문의처, 위탁 현황과 보유기간을 최종 확정해야 합니다.</p></div>
       <p>가든 행정사사무소는 개인정보 보호법 등 관계 법령을 준수하며, 상담 접수 과정에서 처리하는 개인정보의 기준을 다음과 같이 공개합니다.</p>
       <section><h2>1. 개인정보 처리 목적</h2><p>온라인 상담 요청 확인, 신청자 연락, 업무 가능 여부 및 범위 검토, 필요한 자료 안내, 상담 이력 관리 목적으로 처리합니다. 고지한 목적 이외의 용도로 이용하지 않습니다.</p></section>
@@ -25,6 +27,6 @@ export default function PrivacyPage() {
       <section><h2>8. 개인정보의 안전성 확보조치</h2><p>접근 권한 최소화, 전송 구간 보호, 비밀값의 서버 환경변수 관리, 입력값 검증과 안전 처리, 반복·자동 제출 방지, 접속 기록 점검 등 필요한 기술적·관리적 조치를 적용합니다. 상담 폼에서는 주민등록번호, 여권번호, 계좌정보 등 민감정보와 원본서류를 수집하지 않습니다.</p></section>
       <section><h2>9. 개인정보 보호책임자 또는 문의처</h2><p>개인정보 보호책임자의 이름과 개인정보 관련 문의 전화·이메일은 실제 사업자가 확인한 뒤 공개합니다. 온라인 상담 폼에는 민감정보를 입력하지 말아 주세요.</p></section>
       <section><h2>10. 개인정보 처리방침 변경에 관한 사항</h2><p>이 방침의 내용이 변경되는 경우 시행일과 변경 내용을 홈페이지에 공개합니다. 최초 시행일과 개정일은 사업자 최종 확인 후 기재합니다.</p></section>
-    </div></main>
+    </div></section>
   </>;
 }

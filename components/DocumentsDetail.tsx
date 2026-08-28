@@ -11,8 +11,9 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
+import { siteUrl } from "@/lib/site";
 
-const canonical = "https://garden-kimtaehoon-office.vercel.app/services/documents";
+const canonical = siteUrl("/services/documents");
 const consultation = "/contact?service=documents";
 
 const quickChecks = [
@@ -87,7 +88,7 @@ const related = [
   ["업무 분야 전체 보기", "/services", "전체 행정업무 안내"],
   ["행정심판", "/services/appeal", "행정처분 대응 절차"],
   ["기업행정", "/services/corporate", "기업·법인 행정업무"],
-  ["부동산 행정", "/services/real-estate", "토지·부동산 관련 절차"],
+  ["부동산 행정", "/services/land-property", "토지·부동산 관련 절차"],
   ["블로그", "/blog", "행정 실무 정보"],
 ] as const;
 

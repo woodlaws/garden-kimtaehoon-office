@@ -3,10 +3,11 @@ import { ArrowRight, Building2, Check, ExternalLink, FileText, HelpCircle, Shiel
 import { Breadcrumbs } from "@/components/Common";
 import { blogPosts, corporateDetail } from "@/data/site";
 import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
+import { siteUrl } from "@/lib/site";
 
 const relatedPost=blogPosts.find(post=>post.category==="기업·법인 행정");
 const relatedExample=caseExamples.find(item=>item.category==="corporate");
-const canonical="https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site/services/corporate";
+const canonical=siteUrl("/services/corporate");
 
 export function CorporateDetail(){
   const structuredData={"@context":"https://schema.org","@graph":[{"@type":"Service",name:"기업·법인 행정업무",serviceType:"기업·단체 행정기관 제출업무 지원",provider:{"@type":"ProfessionalService",name:"가든 행정사사무소"},url:canonical},{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"홈",item:canonical.replace("/services/corporate","")},{"@type":"ListItem",position:2,name:"업무 분야",item:canonical.replace("/corporate","")},{"@type":"ListItem",position:3,name:"기업·법인 행정",item:canonical}]},{"@type":"FAQPage",mainEntity:corporateDetail.faqs.map(([question,answer])=>({"@type":"Question",name:question,acceptedAnswer:{"@type":"Answer",text:answer}}))}]};

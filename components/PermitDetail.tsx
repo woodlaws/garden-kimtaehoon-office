@@ -3,10 +3,11 @@ import { ArrowRight, Building2, Check, ClipboardCheck, ExternalLink, FileCheck2,
 import { Breadcrumbs } from "@/components/Common";
 import { blogPosts, permitDetail } from "@/data/site";
 import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
+import { siteUrl } from "@/lib/site";
 
 const relatedPost = blogPosts.find((post) => post.category === "각종 인허가");
 const relatedExample = caseExamples.find((item) => item.category === "licensing");
-const canonical = "https://kim-taehoon-administrative-office.geosangbruce.chatgpt.site/services/permits";
+const canonical = siteUrl("/services/permits");
 
 export function PermitDetail() {
   const structuredData = {
