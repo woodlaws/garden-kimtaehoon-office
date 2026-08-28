@@ -37,7 +37,7 @@ export default function AboutPage() {
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
     <section className="about-hero"><div className="shell about-hero-grid">
-      <div className="about-hero-copy"><p className="eyebrow">ABOUT ADMINISTRATIVE ATTORNEY</p><h1>사람을 향한 행정,<br/><strong>정확함과 책임으로 답합니다.</strong></h1><p>복잡한 행정절차를 의뢰인의 눈높이에서 설명하고,<br/>필요한 서류와 진행 과정을 꼼꼼하게 안내합니다.</p><nav className="about-anchor-nav" aria-label="행정사 소개 페이지 바로가기"><a href="#greeting">인사말</a><a href="#profile">프로필</a><a href="#principles">업무 원칙</a><a href="#expertise">전문 업무</a></nav></div>
+      <div className="about-hero-copy"><p className="eyebrow">ABOUT ADMINISTRATIVE ATTORNEY</p><h1><span>사람을 향한 행정,</span><strong>정확함과 책임으로</strong><strong>답합니다.</strong></h1><p>복잡한 행정절차를 의뢰인의 눈높이에서 설명하고,<br/>필요한 서류와 진행 과정을 꼼꼼하게 안내합니다.</p><nav className="about-anchor-nav" aria-label="행정사 소개 페이지 바로가기"><a href="#greeting">인사말</a><a href="#profile">프로필</a><a href="#principles">업무 원칙</a><a href="#expertise">전문 업무</a></nav></div>
       <div className="about-hero-visual"><div className="about-hero-photo"><img src="/images/mockup-source.png" alt="가든 행정사사무소 대표 행정사 김태훈"/></div><ul className="about-trust-tags" aria-label="김태훈 행정사의 업무 방식"><li>직접 상담</li><li>직접 업무 수행</li><li>단계별 진행 안내</li><li>실무 중심 행정 정보</li></ul></div>
     </div></section>
     <Breadcrumbs items={[{ label: "행정사 소개" }]}/>
