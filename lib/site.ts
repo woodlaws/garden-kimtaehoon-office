@@ -5,13 +5,14 @@ export const siteOrigin = (process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_ORIG
 export const siteUrl = (path = "/") => `${siteOrigin}${path === "/" ? "" : `/${path.replace(/^\/+|\/+$/g, "")}`}`;
 export const ogImage = { url: siteUrl("/og.png"), width: 1792, height: 938, alt: "김태훈 행정사 홈페이지 안내" } as const;
 
-export function publicMetadata({ title, description, path, index = true }: { title: string; description: string; path: string; index?: boolean }): Metadata {
+export function publicMetadata({ title, description, path, index = true, openGraphType = "website", image }: { title: string; description: string; path: string; index?: boolean; openGraphType?: "website" | "article"; image?: { url: string; width: number; height: number; alt: string } | null }): Metadata {
   const url = siteUrl(path);
+  const images = image === null ? [] : [image || ogImage];
   return {
     title: { absolute: title }, description,
     alternates: { canonical: url }, robots: { index, follow: true },
-    openGraph: { title, description, url, type: "website", locale: "ko_KR", images: [ogImage] },
-    twitter: { card: "summary_large_image", title, description, images: [ogImage.url] },
+    openGraph: { title, description, url, type: openGraphType, locale: "ko_KR", images },
+    twitter: { card: "summary_large_image", title, description, images: images.map((value) => value.url) },
   };
 }
 

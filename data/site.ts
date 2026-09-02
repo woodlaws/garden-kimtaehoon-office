@@ -1,16 +1,18 @@
+import { coreServices } from "@/data/core-services";
+
 export const siteConfig = {
   name: "가든 행정사사무소",
   representative: "김태훈 행정사",
   tagline: "의뢰인의 가장 든든한 행정 파트너",
-  phone: "확인 필요",
-  phoneHref: "",
-  email: "확인 필요",
-  address: "사무소 주소 확인 필요",
-  hours: "운영시간 확인 필요",
+  phone: "010-5834-5300",
+  phoneHref: "tel:01058345300",
+  email: "thkim247@naver.com",
+  address: "서울 강남구 소재 · 사무실 이전 준비 중",
+  hours: "평일 09:00~19:00",
   kakao: "",
   map: "",
-  blog: "",
-  youtube: "",
+  blog: "https://blog.naver.com/thkim247",
+  youtube: "https://www.youtube.com/@helpmebro247",
   knowledgeIn: "",
   // 확인 필요: 행정사 자격·등록번호, 주요 경력, 대외 활동, 외부 콘텐츠 채널 정보
   credentials: ["행정사 자격 및 등록 정보 확인 필요", "주요 경력 확인 필요"],
@@ -34,7 +36,7 @@ export type Service = {
   documents: string[];
 };
 
-export const services: Service[] = [
+const legacyServices: Service[] = [
   {
     slug: "immigration-visa",
     title: "출입국·비자",
@@ -132,6 +134,9 @@ export const services: Service[] = [
     documents: ["사실관계 시간순 메모", "계약서·대화·사진 등 관련 자료", "문서의 수신인과 전달 목적"],
   },
 ];
+
+void legacyServices;
+export const services = coreServices;
 
 export const immigrationDetail = {
   lastReviewed: "2026-08-26",

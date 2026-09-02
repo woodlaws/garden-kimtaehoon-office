@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/Common";
 import { breadcrumbJsonLd, jsonLd, publicMetadata } from "@/lib/site";
 
 const title = "상담 신청 | 김태훈 행정사";
-const description = "출입국·비자, 인허가, 행정심판, 기업행정, 부동산 행정, 내용증명 및 행정서류 관련 상담을 신청할 수 있습니다.";
+const description = "기업 인허가·인증, 농업경영, 노인복지사업 창업, 행정심판·민원행정 관련 상담을 신청할 수 있습니다.";
 export const metadata: Metadata = publicMetadata({ title, description, path: "/contact", index: false });
 
 const consultationProcess = [

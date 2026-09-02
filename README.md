@@ -34,9 +34,9 @@ CONTACT_FORM_SECRET=optional-shared-secret
 - `/` 메인
 - `/about` 행정사 소개
 - `/services` 업무 분야 전체보기
-- `/services/corporate` 기업·법인 행정
-- `/services/immigration-visa` 출입국·비자
-- `/services/permits` 각종 인허가
-- `/services/appeal` 행정심판·행정처분 구제
+- `/services/business-certification` 기업 인허가·인증
+- `/services/agriculture-consulting` 농업경영 종합 컨설팅
+- `/services/senior-welfare-startup` 노인복지사업 창업 컨설팅
+- `/services/administrative-appeal` 행정심판·민원행정
 - `/contact` 실제 저장 연동 상담 신청
 - `/privacy` 개인정보처리방침

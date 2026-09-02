@@ -14,6 +14,7 @@ import {
   type ContactFormValues,
   validateContact,
 } from "@/lib/contact";
+import { publishedCaseExamples } from "@/data/case-examples";
 
 type ApiResult = { success?: boolean; receiptId?: string; message?: string; fields?: ContactErrors };
 
@@ -26,6 +27,7 @@ const emptyValues: ContactFormValues = {
 export default function ContactApplicationForm() {
   const searchParams = useSearchParams();
   const initialService = serviceQueryMap[searchParams.get("service") || ""] || "";
+  const initialCase = publishedCaseExamples.find((item) => item.slug === searchParams.get("case"));
   const [service, setService] = useState<string>(initialService);
   const [errors, setErrors] = useState<ContactErrors>({});
   const [status, setStatus] = useState<{ type: "error" | "success"; message: string; receiptId?: string } | null>(null);
@@ -140,7 +142,7 @@ export default function ContactApplicationForm() {
       <div className="contact-field"><label htmlFor="contactTime">연락 가능한 시간 <span className="optional">선택</span></label><select id="contactTime" name="contactTime" aria-invalid={!!errors.contactTime} aria-describedby={`contact-time-note ${describedBy("contactTime") || ""}`}><option value="">선택해 주세요</option>{contactTimes.map(item => <option key={item}>{item}</option>)}</select><small id="contact-time-note">연락 희망시간이며 상담 가능시간을 보장하지 않습니다.</small>{fieldError("contactTime")}</div>
     </div>
 
-    <div className="contact-field full"><label htmlFor="title">문의 제목 <span className="required-mark" aria-hidden="true">*</span><span className="sr-only">필수</span></label><input id="title" name="title" maxLength={120} placeholder="문의 내용을 한 줄로 적어주세요" aria-invalid={!!errors.title} aria-describedby={describedBy("title")}/>{fieldError("title")}</div>
+    <div className="contact-field full"><label htmlFor="title">문의 제목 <span className="required-mark" aria-hidden="true">*</span><span className="sr-only">필수</span></label><input id="title" name="title" maxLength={120} defaultValue={initialCase ? `${initialCase.title} 관련 상담` : undefined} placeholder="문의 내용을 한 줄로 적어주세요" aria-invalid={!!errors.title} aria-describedby={describedBy("title")}/>{fieldError("title")}</div>
     <div className="contact-field full"><label htmlFor="content">현재 상황 및 문의 내용 <span className="required-mark" aria-hidden="true">*</span><span className="sr-only">필수</span></label><textarea id="content" name="content" minLength={20} maxLength={2000} placeholder="현재 상황, 받은 문서와 날짜, 처리기한, 원하는 도움을 20자 이상 적어주세요." aria-invalid={!!errors.content} aria-describedby={`sensitive-note ${describedBy("content") || ""}`}/><p className="contact-sensitive" id="sensitive-note"><ShieldCheck/>주민등록번호, 여권번호, 계좌정보 등 민감한 개인정보는 입력하지 마세요. 관련 서류는 상담 후 안내된 방법으로 전달해주시기 바랍니다.</p>{fieldError("content")}</div>
     <div className="contact-field full"><label htmlFor="referenceUrl">참고 링크 <span className="optional">선택</span></label><input id="referenceUrl" name="referenceUrl" type="url" inputMode="url" placeholder="https://" maxLength={500} aria-invalid={!!errors.referenceUrl} aria-describedby={describedBy("referenceUrl")}/>{fieldError("referenceUrl")}</div>
     <div className="contact-field full"><label htmlFor="additionalNotes">개인정보가 포함되지 않은 추가 참고사항 <span className="optional">선택</span></label><textarea className="short" id="additionalNotes" name="additionalNotes" maxLength={500}/></div>

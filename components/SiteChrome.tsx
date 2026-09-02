@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, Phone, MessageCircle, FileText, X } from "lucide-react";
+import { ChevronDown, Menu, Phone, FileText, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/data/site";
 
@@ -13,12 +13,10 @@ const nav = [
 
 const serviceNav = [
   ["/services", "업무 분야 전체보기"],
-  ["/services/immigration-visa", "출입국·비자"],
-  ["/services/permits", "각종 인허가"],
-  ["/services/appeal", "행정심판·행정처분 구제"],
-  ["/services/corporate", "기업·법인 행정"],
-  ["/services/land-property", "부동산 행정"],
-  ["/services/documents", "사실조사·내용증명·행정서류"],
+  ["/services/business-certification", "기업 인허가·인증"],
+  ["/services/agriculture-consulting", "농업경영 종합 컨설팅"],
+  ["/services/senior-welfare-startup", "노인복지사업 창업 컨설팅"],
+  ["/services/administrative-appeal", "행정심판·민원행정"],
 ] as const;
 
 export function Header() {
@@ -85,7 +83,7 @@ export function Header() {
               </Link>
               {servicesOpen && <div id="desktop-services-menu" className="services-dropdown" aria-label="업무 분야 하위 메뉴">
                 {serviceNav.map(([serviceHref, serviceLabel]) => {
-                  const active = path === serviceHref || (serviceHref === "/services/land-property" && path === "/services/real-estate");
+                  const active = path === serviceHref;
                   return <Link key={serviceHref} href={serviceHref} className={active ? "active" : ""} aria-current={active ? "page" : undefined}>{serviceLabel}<span aria-hidden="true">→</span></Link>;
                 })}
               </div>}
@@ -106,13 +104,13 @@ export function Header() {
             </button>
             {mobileServicesOpen && <div id="mobile-services-menu" className="mobile-services-submenu">
               {serviceNav.map(([serviceHref, serviceLabel]) => {
-                const active = path === serviceHref || (serviceHref === "/services/land-property" && path === "/services/real-estate");
+                const active = path === serviceHref;
                 return <Link key={serviceHref} href={serviceHref} onClick={closeMobileMenu} className={active ? "active" : ""} aria-current={active ? "page" : undefined}>{serviceLabel}<span aria-hidden="true">→</span></Link>;
               })}
             </div>}
           </div>
         ) : <Link key={href} href={href} onClick={closeMobileMenu} className={path === href || (href !== "/" && path.startsWith(href)) ? "active" : ""} aria-current={path === href ? "page" : undefined}>{label}<span aria-hidden="true">→</span></Link>)}
-        <p>연락처와 카카오톡 링크는 확정 후 활성화됩니다.</p>
+        <p>전화 상담: <a href={siteConfig.phoneHref}>{siteConfig.phone}</a> · 평일 09:00~19:00</p>
       </nav>
     </div>}
   </>;
@@ -121,7 +119,7 @@ export function Header() {
 export function Footer() {
   return <footer className="footer"><div className="shell footer-grid">
     <div><div className="brand footer-brand"><span className="brand-mark">庭</span><span><strong>{siteConfig.name}</strong><small>{siteConfig.representative}</small></span></div><p>{siteConfig.notice}</p></div>
-    <div><h3>바로가기</h3><div className="footer-links"><Link href="/about">행정사 소개</Link><Link href="/services">업무 분야</Link><Link href="/blog">블로그</Link><Link href="/board">게시판</Link></div></div>
+    <div><h3>바로가기</h3><div className="footer-links"><Link href="/about">행정사 소개</Link><Link href="/services">업무 분야</Link><Link href="/cases">업무 사례</Link><Link href="/blog">블로그</Link><Link href="/board">게시판</Link></div></div>
     <div><h3>사무소 정보</h3><p>주소: {siteConfig.address}<br/>전화: {siteConfig.phone}<br/>이메일: {siteConfig.email}<br/>운영시간: {siteConfig.hours}</p></div>
   </div><div className="shell footer-bottom"><span>© 2026 {siteConfig.name}. All rights reserved.</span><Link href="/privacy">개인정보처리방침</Link></div></footer>;
 }
@@ -130,6 +128,6 @@ export function MobileActions() {
   const path = usePathname();
   if (path === "/contact") return null;
   return <nav className="mobile-actions" aria-label="빠른 상담 메뉴">
-    <span aria-disabled="true"><Phone/>전화 상담</span><span aria-disabled="true"><MessageCircle/>카카오톡</span><Link href="/contact"><FileText/>온라인 문의</Link>
+    <a href={siteConfig.phoneHref}><Phone/>전화 상담</a><Link href="/contact"><FileText/>온라인 문의</Link>
   </nav>;
 }

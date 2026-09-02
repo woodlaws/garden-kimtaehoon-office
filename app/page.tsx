@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, BriefcaseBusiness, FileCheck2, Handshake, MessageCircleQuestion, MonitorPlay, SearchCheck, ShieldCheck, UserRoundCheck } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Building2, FileCheck2, HeartHandshake, MessageCircleQuestion, MonitorPlay, Scale, SearchCheck, ShieldCheck, Sprout, UserRoundCheck } from "lucide-react";
 import { CTA } from "@/components/Common";
 import { blogPosts, faqs, notices, processSteps, services, siteConfig } from "@/data/site";
 import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
@@ -9,11 +9,11 @@ import { breadcrumbJsonLd, jsonLd, publicMetadata } from "@/lib/site";
 
 export const metadata: Metadata = publicMetadata({
   title: "김태훈 행정사 | 가든 행정사사무소",
-  description: "출입국·비자, 각종 인허가, 행정심판, 기업·법인 행정, 부동산 행정과 행정서류 업무를 정확하고 책임 있게 안내합니다.",
+  description: "기업 인허가·인증, 농업경영 컨설팅, 노인복지사업 창업, 행정심판과 민원행정을 지원하는 가든 행정사사무소입니다.",
   path: "/",
 });
 
-const icons = [FileCheck2, BriefcaseBusiness, SearchCheck, ShieldCheck, Handshake, BadgeCheck];
+const icons = [Building2, Sprout, HeartHandshake, Scale];
 
 export default function Home() {
   const contactEnabled = Boolean(process.env.CONTACT_FORM_ENDPOINT);
@@ -33,7 +33,7 @@ export default function Home() {
 
     <section className="section"><div className="shell"><div className="section-heading center"><p className="eyebrow">PROCESS</p><h2>업무 진행 절차</h2></div><ol className="process-grid">{processSteps.map((step, i) => <li key={step}><span>{String(i + 1).padStart(2,"0")}</span><b>{step}</b><p>{i === 0 ? "현재 상황과 필요한 업무를 알려주세요." : i === 1 ? "관련 자료와 사실관계를 확인합니다." : i === 2 ? "범위와 일정, 준비사항을 안내합니다." : i === 3 ? "동의한 범위에서 업무를 시작합니다." : i === 4 ? "중요 단계와 보완사항을 공유합니다." : "처리 내용과 후속 절차를 안내합니다."}</p></li>)}</ol></div></section>
 
-    <section className="section soft"><div className="shell"><div className="split-heading"><div><p className="eyebrow">WORK EXAMPLES</p><h2>업무 진행 예시</h2></div><Link className="text-link" href="/cases">전체 보기 →</Link></div><div className="case-grid">{caseExamples.slice(0, 3).map(c => <article className="case-card" key={c.slug}><span>업무 진행 예시</span><small>{c.categoryLabel}</small><h3><Link href={`/cases/${c.slug}`}>{c.title}</Link></h3><p>{c.summary}</p><Link href={`/cases/${c.slug}`}>진행 방식 보기 →</Link></article>)}</div></div></section>
+    <section className="section soft"><div className="shell"><div className="split-heading"><div><p className="eyebrow">ACTUAL WORK CASES</p><h2>주요 업무사례</h2></div><Link className="text-link" href="/cases">전체 보기 →</Link></div><div className="case-grid">{caseExamples.slice(0, 3).map(c => <article className="case-card" key={c.slug}><span>{c.actualCaseVerified ? "업무사례" : "실무안내"}</span><small>{c.categoryLabel}</small><h3><Link href={`/cases/${c.slug}`}>{c.title}</Link></h3><p>{c.summary}</p><Link href={`/cases/${c.slug}`}>상세 보기 →</Link></article>)}</div></div></section>
 
     <section className="section"><div className="shell"><div className="split-heading"><div><p className="eyebrow">ADMINISTRATIVE INSIGHTS</p><h2>행정사가 직접 알려드리는 실무 정보</h2></div><Link className="text-link" href="/blog">블로그 전체 보기 →</Link></div><div className="blog-grid home-blog">{blogPosts.slice(0,3).map((post,i)=><article className="blog-card" key={post.slug}><div className={`thumb thumb-${i+1}`}><span>{post.category}</span></div><div className="card-body"><p className="meta">{post.date}</p><h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3><p>{post.summary}</p></div></article>)}</div></div></section>
 

@@ -1,25 +1,27 @@
-export const CONTACT_RETENTION_PERIOD = "상담 접수일로부터 1년 또는 동의 철회 시까지";
+export const CONTACT_RETENTION_PERIOD = "상담 목적 달성 후 관련 법령과 내부 기준에 따라 파기";
 
 export const contactServices = [
-  "출입국·비자",
-  "인허가",
-  "행정심판",
-  "기업행정",
-  "부동산 행정",
-  "사실조사·내용증명·행정서류",
-  "기타 행정업무",
+  "기업 인허가·인증",
+  "농업경영 컨설팅",
+  "노인복지사업 창업",
+  "행정심판·민원행정",
+  "기타 문의",
 ] as const;
 
 export const consultationMethods = ["전화 상담", "방문 상담", "온라인 상담", "상담 후 결정"] as const;
 export const contactTimes = ["오전 9시~12시", "오후 12시~3시", "오후 3시~6시", "별도 협의"] as const;
 
 export const serviceQueryMap: Record<string, (typeof contactServices)[number]> = {
-  immigration: "출입국·비자",
-  licensing: "인허가",
-  appeal: "행정심판",
-  corporate: "기업행정",
-  "real-estate": "부동산 행정",
-  documents: "사실조사·내용증명·행정서류",
+  business: "기업 인허가·인증",
+  agriculture: "농업경영 컨설팅",
+  welfare: "노인복지사업 창업",
+  appeal: "행정심판·민원행정",
+  corporate: "기업 인허가·인증",
+  licensing: "기업 인허가·인증",
+  "business-certification": "기업 인허가·인증",
+  "agriculture-consulting": "농업경영 컨설팅",
+  "senior-welfare-startup": "노인복지사업 창업",
+  "administrative-appeal": "행정심판·민원행정",
 };
 
 export type ContactFormValues = {
