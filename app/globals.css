@@ -377,3 +377,7 @@ body{overflow-x:clip}.hero-copy,.hero-visual{min-width:0}.hero-lead{overflow-wra
   .hero-redesign .hero-portrait-frame{height:clamp(360px,95vw,400px)}
   .hero-redesign .hero-profile-caption{padding-top:14px}
 }
+
+/* Home introduction portrait: focus on the face without resizing its card. */
+.intro-section .profile-photo img{object-fit:cover;object-position:center 24%;transform:scale(1.6);transform-origin:center 24%}
+@media(max-width:520px){.intro-section .profile-photo img{object-position:center 18%;transform:scale(1.25);transform-origin:center 18%}}
