@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BriefcaseBusiness, Building2, FileCheck2, HeartHandshake, MessageCircleQuestion, MonitorPlay, Scale, SearchCheck, ShieldCheck, Sprout, UserRoundCheck } from "lucide-react";
 import { CTA } from "@/components/Common";
+import { OfficeLocation } from "@/components/OfficeLocation";
 import { blogPosts, faqs, notices, processSteps, services, siteConfig } from "@/data/site";
 import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
 import { breadcrumbJsonLd, jsonLd, publicMetadata } from "@/lib/site";
@@ -57,7 +58,7 @@ export default function Home() {
 
     <section className="consult-band"><div className="shell consult-grid"><div><p className="eyebrow">ONLINE CONSULTATION</p><h2>어떤 행정 절차로<br/><strong>고민하고 계신가요?</strong></h2><p>상담 접수 상태를 확인한 뒤 안전한 상담 신청 페이지로 안내합니다.</p></div>{contactEnabled ? <div className="consult-entry"><h3>온라인 상담 접수가 가능합니다.</h3><p>현재 상황과 처리기한을 남겨주시면 접수 내용을 확인해 안내합니다.</p><Link className="button gold" href="/contact">상담 신청하기 <ArrowRight/></Link></div> : <div className="consult-unavailable" role="status"><h3>온라인 접수 준비 중</h3><p>현재 상담 접수 채널을 점검하고 있습니다. 연결이 완료되기 전에는 개인정보를 입력받지 않습니다.</p></div>}</div></section>
 
-    <section className="section location" id="location"><div className="shell"><div className="section-heading center"><p className="eyebrow">LOCATION</p><h2>오시는 길</h2></div><div className="location-card"><div><h3>{siteConfig.name}</h3><p><b>주소</b> {siteConfig.address}</p><p><b>전화</b> {siteConfig.phone}</p><p><b>운영시간</b> {siteConfig.hours}</p><p className="data-note">정확한 주소와 교통·주차 정보는 고객 확인 후 게시됩니다.</p></div><div className="map-placeholder"><span>지도 연결 준비 중</span><p>주소 확정 후 지도와 길찾기 버튼이 활성화됩니다.</p></div></div></div></section>
+    <OfficeLocation/>
     <CTA/>
   </>;
 }

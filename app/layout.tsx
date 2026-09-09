@@ -20,7 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@graph": [
       { "@type": "WebSite", "@id": `${siteOrigin}/#website`, name: `${siteConfig.representative} 홈페이지`, url: siteOrigin },
       { "@type": "Person", "@id": `${siteOrigin}/about#kim-taehoon`, name: siteConfig.representative, url: siteUrl("/about") },
-      { "@type": "ProfessionalService", "@id": `${siteOrigin}/#office`, name: siteConfig.name, url: siteOrigin },
+      { "@type": "ProfessionalService", "@id": `${siteOrigin}/#office`, name: siteConfig.name, url: siteOrigin, address: siteConfig.address },
     ],
   };
   return <html lang="ko"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}/><a className="skip-link" href="#main">본문 바로가기</a><Header/><main id="main">{children}</main><Footer/><MobileActions/></body></html>;

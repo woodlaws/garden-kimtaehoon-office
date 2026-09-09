@@ -7,7 +7,7 @@ export const siteConfig = {
   phone: "010-5834-5300",
   phoneHref: "tel:01058345300",
   email: "thkim247@naver.com",
-  address: "서울 강남구 소재 · 사무실 이전 준비 중",
+  address: "서울 강남구 논현로2길 60 세화빌딩 401호",
   hours: "평일 09:00~19:00",
   kakao: "",
   map: "",
