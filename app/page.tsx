@@ -40,7 +40,21 @@ export default function Home() {
     </div></section>
     <section className="trust-strip"><div className="shell trust-grid"><div><UserRoundCheck/><b>직접 상담·직접 수행</b><span>대표 행정사가 책임 있게 진행</span></div><div><BriefcaseBusiness/><b>다양한 행정업무</b><span>상황에 맞는 절차와 서류 안내</span></div><div><MessageCircleQuestion/><b>이해하기 쉬운 설명</b><span>복잡한 내용을 단계별로 안내</span></div><div><MonitorPlay/><b>행정 정보 콘텐츠</b><span>실무 중심 정보 꾸준히 제공</span></div></div></section>
 
-    <section className="section intro-section"><div className="shell intro-grid"><div><p className="eyebrow">ABOUT</p><h2>의뢰인의 상황부터<br/>정확히 듣습니다.</h2><p className="lead">행정절차는 같은 이름의 업무라도 사실관계와 관할에 따라 준비할 내용이 달라집니다.</p><p>가든 행정사사무소는 먼저 자료와 현재 상황을 확인하고, 가능한 절차와 필요한 서류를 이해하기 쉽게 설명하는 것을 원칙으로 합니다.</p><Link className="text-link" href="/about">행정사 소개 보기 →</Link></div><div className="profile-card"><div className="profile-photo"><div className="mockup-crop small"><Image src="/images/kim-taehoon-profile-smile.jpg" alt="김태훈 행정사" fill sizes="(max-width: 520px) calc(125vw - 87.5px), (max-width: 780px) 232px, 368px"/></div></div><div><span>대표 행정사</span><h3>김태훈</h3><ul><li>자격·등록 정보 확인 후 게시</li><li>주요 경력 확인 후 게시</li><li>전문 분야는 상담 범위에 맞춰 안내</li></ul><p className="signature">정확한 안내와 책임 있는 진행을 약속합니다.</p></div></div></div></section>
+    <section className="section representative-trust" aria-labelledby="representative-trust-title">
+      <div className="shell">
+        <div className="representative-trust-heading">
+          <p className="eyebrow">DIRECT CARE</p>
+          <h2 id="representative-trust-title">상담부터 업무 수행까지<br/>대표 행정사가 직접 진행합니다</h2>
+          <p>의뢰 내용을 충분히 검토하고, 사건별 상황에 맞는 절차와 진행 방향을 명확하게 안내해 드립니다.</p>
+        </div>
+        <div className="representative-trust-grid">
+          <article><MessageCircleQuestion aria-hidden="true"/><div><h3>대표 행정사 직접 상담</h3><p>상담 내용을 다른 담당자에게 넘기지 않고 직접 확인합니다.</p></div></article>
+          <article><SearchCheck aria-hidden="true"/><div><h3>사건별 맞춤 검토</h3><p>정형화된 안내가 아닌 의뢰인의 상황을 기준으로 검토합니다.</p></div></article>
+          <article><FileCheck2 aria-hidden="true"/><div><h3>진행 과정 투명 안내</h3><p>필요한 서류와 절차, 진행 상황을 이해하기 쉽게 안내합니다.</p></div></article>
+        </div>
+        <Link className="text-link" href="/about">행정사 소개 보기 →</Link>
+      </div>
+    </section>
 
     <section className="section soft"><div className="shell"><div className="section-heading center"><p className="eyebrow">SERVICES</p><h2>주요 업무 안내</h2><p>내 상황에 가까운 업무를 선택하면 준비사항과 진행 절차를 확인할 수 있습니다.</p></div><div className="service-grid">{services.map((service, i) => { const Icon = icons[i]; return <article className="service-card" key={service.slug}><Icon/><h3>{service.title}</h3><p>{service.short}</p><Link href={service.detailPath}>자세히 보기 <ArrowRight/></Link></article>; })}</div><div className="center-action"><Link className="button outline" href="/services">전체 업무 분야 보기</Link></div></div></section>
 

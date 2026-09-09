@@ -378,10 +378,6 @@ body{overflow-x:clip}.hero-copy,.hero-visual{min-width:0}.hero-lead{overflow-wra
   .hero-redesign .hero-profile-caption{padding-top:14px}
 }
 
-/* Home introduction portrait: focus on the face without resizing its card. */
-.intro-section .profile-photo img{object-fit:cover;object-position:center 24%;transform:scale(1.6);transform-origin:center 24%}
-@media(max-width:520px){.intro-section .profile-photo img{object-position:center 18%;transform:scale(1.25);transform-origin:center 18%}}
-
 /* Office location: information, map, then accessible navigation actions. */
 .office-location-card{grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr)}
 .office-location-info{min-width:0}
@@ -397,3 +393,15 @@ body{overflow-x:clip}.hero-copy,.hero-visual{min-width:0}.hero-lead{overflow-wra
   .office-location-map{height:300px;min-height:300px}
   .office-location-actions{padding:24px 20px 8px}
 }
+/* Representative-led service, without a repeated portrait. */
+.representative-trust{padding-block:64px;text-align:center}
+.representative-trust-heading{max-width:790px;margin:0 auto 30px}
+.representative-trust-heading h2{font-size:clamp(1.65rem,2.7vw,2.3rem);line-height:1.4}
+.representative-trust-heading>p:last-child{margin:0;color:var(--muted);font-size:.96rem}
+.representative-trust-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;text-align:left}
+.representative-trust-grid article{display:flex;align-items:flex-start;gap:16px;padding:26px 22px;border:1px solid var(--line);border-radius:9px;background:var(--soft)}
+.representative-trust-grid svg{flex-shrink:0;width:30px;height:30px;color:var(--gold-2);stroke-width:1.6}
+.representative-trust-grid h3{margin:0 0 9px;color:var(--navy);font-size:1.03rem;line-height:1.5}
+.representative-trust-grid p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.7}
+.representative-trust .text-link{margin-top:24px;font-size:.9rem}
+@media(max-width:780px){.representative-trust{padding-block:48px}.representative-trust-grid{grid-template-columns:1fr;gap:12px}.representative-trust-grid article{padding:22px 20px}.representative-trust-heading{margin-bottom:24px}}
