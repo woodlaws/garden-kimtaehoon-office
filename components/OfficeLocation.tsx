@@ -28,12 +28,16 @@ export function OfficeLocation() {
           <p><b>운영시간</b> {siteConfig.hours}</p>
         </div>
         <div className="office-location-map">
-          <div className="office-map-preview" aria-label="사무실 위치 안내">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            <strong>세화빌딩 401호</strong>
-            <p>서울 강남구 논현로2길 60</p>
-            <span>아래 지도에서 위치와 길찾기를 확인하세요.</span>
-          </div>
+          <iframe
+            src={`https://www.google.com/maps?q=${encodeURIComponent("서울특별시 강남구 논현로2길 60")}&output=embed&hl=ko&z=17`}
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="김태훈 행정사 사무소 위치"
+            allowFullScreen
+          />
         </div>
         <div className="office-location-actions">
           <div className="button-row">
