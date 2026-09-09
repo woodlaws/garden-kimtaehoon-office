@@ -21,7 +21,21 @@ export default function Home() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd([{ name: "홈", path: "/" }])) }}/>
     <section className="hero hero-redesign"><div className="shell hero-shell hero-grid">
       <div className="hero-copy"><p className="eyebrow">의뢰인의 가장 든든한 행정 파트너</p><h1 className="hero-title"><span>복잡한 행정 절차,</span><span className="hero-title-accent">김태훈 행정사가</span><span>명확하게 풀어드립니다.</span></h1><p className="hero-lead">인허가부터 기업행정·행정심판·출입국 업무까지,<br/>자료를 꼼꼼히 확인하고 진행 과정을 책임 있게 안내합니다.</p><div className="button-row"><Link href="/contact" className="button primary">상담 신청하기 <ArrowRight/></Link><Link href="/services" className="button outline">업무 분야 확인하기</Link></div></div>
-      <figure className="hero-portrait" aria-label="김태훈 행정사 프로필 이미지"><div className="hero-portrait-frame"><Image src="/images/profile-main.webp" alt="가든 행정사사무소 대표 행정사 김태훈" fill priority sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 780px) 48vw, 480px"/></div><figcaption className="hero-profile-caption"><div><small>대표 행정사</small><strong>김태훈</strong></div><ul><li>직접 상담·업무 수행</li><li>진행 단계별 안내</li></ul></figcaption></figure>
+      <figure className="hero-portrait">
+        <div className="hero-portrait-frame">
+          <Image
+            src="/images/kim-taehoon-profile.jpg"
+            alt="김태훈 행정사 프로필 사진"
+            fill
+            priority
+            sizes="(max-width: 520px) calc(100vw - 28px), (max-width: 900px) 440px, (max-width: 1180px) 44vw, 520px"
+          />
+        </div>
+        <figcaption className="hero-profile-caption">
+          <strong>김태훈 행정사</strong>
+          <span>기업·인허가·정부지원 행정 전문</span>
+        </figcaption>
+      </figure>
     </div></section>
     <section className="trust-strip"><div className="shell trust-grid"><div><UserRoundCheck/><b>직접 상담·직접 수행</b><span>대표 행정사가 책임 있게 진행</span></div><div><BriefcaseBusiness/><b>다양한 행정업무</b><span>상황에 맞는 절차와 서류 안내</span></div><div><MessageCircleQuestion/><b>이해하기 쉬운 설명</b><span>복잡한 내용을 단계별로 안내</span></div><div><MonitorPlay/><b>행정 정보 콘텐츠</b><span>실무 중심 정보 꾸준히 제공</span></div></div></section>
 
