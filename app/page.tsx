@@ -6,6 +6,7 @@ import { CTA } from "@/components/Common";
 import { OfficeLocation } from "@/components/OfficeLocation";
 import { blogPosts, faqs, notices, processSteps, services, siteConfig } from "@/data/site";
 import { publishedCaseExamples as caseExamples } from "@/data/case-examples";
+import { educationActivities } from "@/data/activities";
 import { breadcrumbJsonLd, jsonLd, publicMetadata } from "@/lib/site";
 
 export const metadata: Metadata = publicMetadata({
@@ -57,6 +58,12 @@ export default function Home() {
     </section>
 
     <section className="section soft"><div className="shell"><div className="section-heading center"><p className="eyebrow">SERVICES</p><h2>주요 업무 안내</h2><p>내 상황에 가까운 업무를 선택하면 준비사항과 진행 절차를 확인할 수 있습니다.</p></div><div className="service-grid">{services.map((service, i) => { const Icon = icons[i]; return <article className="service-card" key={service.slug}><Icon/><h3>{service.title}</h3><p>{service.short}</p><Link href={service.detailPath}>자세히 보기 <ArrowRight/></Link></article>; })}</div><div className="center-action"><Link className="button outline" href="/services">전체 업무 분야 보기</Link></div></div></section>
+
+    <section className="section home-activities"><div className="shell home-activities-grid">
+      <div className="home-activities-heading"><p className="eyebrow">EDUCATION &amp; FIELD</p><h2>농업 현장에서 만나고,<br/>교육으로 함께합니다</h2></div>
+      <figure className="home-activities-photo"><Image src={educationActivities[0].images[0].src} alt={educationActivities[0].images[0].alt} fill sizes="(max-width: 780px) calc(100vw - 32px), 560px" style={{ objectPosition: educationActivities[0].images[0].position }}/><figcaption>{educationActivities[0].images[0].caption}</figcaption></figure>
+      <div className="home-activities-copy"><p>농업전문경영인 육성교육부터 농업 관련 단체의 역량강화교육까지, 김태훈 행정사의 교육 현장을 소개합니다.</p><Link className="button primary" href="/board/activities">교육·강의 활동 보기 <ArrowRight/></Link></div>
+    </div></section>
 
     <section className="reason-section"><div className="shell"><div className="section-heading center light"><p className="eyebrow">WHY US</p><h2>김태훈 행정사와 함께하는 이유</h2></div><div className="reason-grid"><div><UserRoundCheck/><h3>대표 행정사 직접 수행</h3><p>상담부터 서류 검토와 진행 안내까지 직접 책임집니다.</p></div><div><FileCheck2/><h3>절차별 명확한 안내</h3><p>업무 진행 단계와 필요한 서류를 알기 쉽게 설명합니다.</p></div><div><SearchCheck/><h3>자료 중심의 꼼꼼한 검토</h3><p>추측보다 처분서와 신청자료, 사실관계를 먼저 확인합니다.</p></div><div><ShieldCheck/><h3>진행 상황 공유</h3><p>현재 단계와 추가로 필요한 내용을 투명하게 안내합니다.</p></div></div></div></section>
 

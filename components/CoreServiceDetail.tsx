@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -14,6 +15,7 @@ import {
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
 import { coreServices, serviceProcess, type CoreService } from "@/data/core-services";
+import { agricultureEducationActivities } from "@/data/activities";
 
 const icons = { building: Building2, sprout: Sprout, heart: HeartHandshake, scale: Scale } as const;
 
@@ -61,7 +63,7 @@ export function CoreServiceDetail({ service }: { service: CoreService }) {
     <section className="section core-service-cases"><div className="shell">
       <div className="split-heading"><div><p className="eyebrow">ACTUAL WORK CASES</p><h2>관련 업무사례</h2></div><p>사례의 결과는 개별 사실관계에 따른 것이며 다른 업무의 결과를 보장하지 않습니다.</p></div>
       <div className={`core-service-case-grid count-${service.cases.length}`}>{service.cases.map((item) => <article key={item.path}><small>{item.category}</small><h3>{item.title}</h3><p>{item.description}</p><Link href={item.path}>사례 상세 보기 <ArrowRight/></Link></article>)}</div>
-      {service.evidence && <div className="core-service-evidence"><div><ClipboardCheck/><span><b>현장을 이해하는 전문성</b>교육과 기고를 통해 농업 행정 정보를 전달합니다.</span></div><nav aria-label="농업경영 전문 콘텐츠">{service.evidence.map((item) => <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer">{item.label}<ExternalLink/></a>)}</nav></div>}
+      {service.evidence && <section className="core-service-field"><div className="core-service-field-heading"><div><ClipboardCheck/><span><b>현장을 이해하는 전문성</b>농업경영 행정의 기준과 준비 과정을 교육 현장에서 직접 설명합니다.</span></div><p>아래 강의 활동은 교육 실적이며, 개별 지원사업 선정이나 인허가 결과를 의미하지 않습니다.</p></div><div className="core-service-field-grid">{agricultureEducationActivities.map((activity) => {const image=activity.images[0];return <article key={activity.slug}><div className="core-service-field-image"><Image src={image.src} alt={image.alt} fill sizes="(max-width: 780px) calc(100vw - 48px), 520px" style={{objectPosition:image.position}}/></div><div><span>{activity.category}</span><h3>{activity.title}</h3><p>{activity.summary}</p><Link href={`/board/activities/${activity.slug}`}>교육 활동 상세 보기 <ArrowRight/></Link></div></article>})}</div><nav className="core-service-evidence" aria-label="농업경영 출강 영상 및 기고 콘텐츠"><div><ExternalLink/><span><b>영상·기고 자료</b>기존 출강 영상과 기고문도 함께 확인할 수 있습니다.</span></div><div>{service.evidence.map((item) => <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer">{item.label}<ExternalLink/></a>)}</div></nav></section>}
     </div></section>
 
     <section className="section soft core-service-faq"><div className="shell core-service-two-column">

@@ -1,15 +1,17 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, services } from "@/data/site";
 import { publishedCaseExamples } from "@/data/case-examples";
+import { educationActivities } from "@/data/activities";
 import { siteUrl } from "@/lib/site";
 
 const staticPages = [
-  { path: "/", modified: "2026-08-28", priority: 1 },
-  { path: "/about", modified: "2026-08-28", priority: .8 },
+  { path: "/", modified: "2026-09-14", priority: 1 },
+  { path: "/about", modified: "2026-09-14", priority: .8 },
   { path: "/services", modified: "2026-08-28", priority: .9 },
   { path: "/cases", modified: "2026-09-02", priority: .7 },
   { path: "/blog", modified: "2026-08-20", priority: .8 },
-  { path: "/board", modified: "2026-08-20", priority: .6 },
+  { path: "/board", modified: "2026-09-14", priority: .6 },
+  { path: "/board/activities", modified: "2026-09-14", priority: .7 },
   { path: "/board/notices", modified: "2026-08-20", priority: .6 },
   { path: "/board/faq", modified: "2026-08-27", priority: .6 },
   { path: "/privacy", modified: "2026-08-27", priority: .4 },
@@ -18,7 +20,8 @@ const staticPages = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages.map(page => ({ url: siteUrl(page.path), lastModified: new Date(page.modified), changeFrequency: "weekly" as const, priority: page.priority })),
-    ...services.map(service => ({ url: siteUrl(service.detailPath), lastModified: new Date("2026-09-02"), changeFrequency: "monthly" as const, priority: .8 })),
+    ...services.map(service => ({ url: siteUrl(service.detailPath), lastModified: new Date(service.slug === "agriculture-consulting" ? "2026-09-14" : "2026-09-02"), changeFrequency: "monthly" as const, priority: .8 })),
+    ...educationActivities.map(activity => ({ url: siteUrl(`/board/activities/${activity.slug}`), lastModified: new Date("2026-09-14"), changeFrequency: "monthly" as const, priority: .6 })),
     ...publishedCaseExamples.map(item => ({ url: siteUrl(`/cases/${item.slug}`), lastModified: new Date(item.updatedAt), changeFrequency: "monthly" as const, priority: .6 })),
     ...blogPosts.map(post => ({ url: siteUrl(`/blog/${post.slug}`), lastModified: new Date(post.updated), changeFrequency: "monthly" as const, priority: .7 })),
   ];

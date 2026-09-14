@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { Breadcrumbs } from "@/components/Common";
 import { blogPosts, services, siteConfig } from "@/data/site";
+import { educationActivities } from "@/data/activities";
 import { breadcrumbJsonLd, jsonLd, publicMetadata, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = publicMetadata({
@@ -35,8 +36,8 @@ export default function AboutPage() {
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
     <section className="about-hero"><div className="shell about-hero-grid">
-      <div className="about-hero-copy"><p className="eyebrow">ABOUT ADMINISTRATIVE ATTORNEY</p><h1><span>사람을 향한 행정,</span><strong>정확함과 책임으로</strong><strong>답합니다.</strong></h1><p>복잡한 행정절차를 의뢰인의 눈높이에서 설명하고,<br/>필요한 서류와 진행 과정을 꼼꼼하게 안내합니다.</p><nav className="about-anchor-nav" aria-label="행정사 소개 페이지 바로가기"><a href="#greeting">인사말</a><a href="#profile">프로필</a><a href="#principles">업무 원칙</a><a href="#expertise">전문 업무</a></nav></div>
-      <div className="about-hero-visual"><div className="about-hero-photo"><Image src="/images/profile-about.webp" alt="가든 행정사사무소 대표 행정사 김태훈" fill sizes="(max-width: 780px) calc(100vw - 32px), 480px"/></div><ul className="about-trust-tags" aria-label="김태훈 행정사의 업무 방식"><li>직접 상담</li><li>직접 업무 수행</li><li>단계별 진행 안내</li><li>실무 중심 행정 정보</li></ul></div>
+      <div className="about-hero-copy"><p className="eyebrow">ABOUT ADMINISTRATIVE ATTORNEY</p><h1><span>사람을 향한 행정,</span><strong>정확함과 책임으로</strong><strong>답합니다.</strong></h1><p>복잡한 행정절차를 의뢰인의 눈높이에서 설명하고,<br/>필요한 서류와 진행 과정을 꼼꼼하게 안내합니다.</p><nav className="about-anchor-nav" aria-label="행정사 소개 페이지 바로가기"><a href="#greeting">인사말</a><a href="#profile">프로필</a><a href="#activities">교육 활동</a><a href="#principles">업무 원칙</a><a href="#expertise">전문 업무</a></nav></div>
+      <div className="about-hero-visual"><div className="about-hero-photo"><Image src="/images/profile-about.webp" alt="가든 행정사사무소 대표 행정사 김태훈" fill priority sizes="(max-width: 780px) calc(100vw - 32px), 480px"/></div><ul className="about-trust-tags" aria-label="김태훈 행정사의 업무 방식"><li>직접 상담</li><li>직접 업무 수행</li><li>단계별 진행 안내</li><li>실무 중심 행정 정보</li></ul></div>
     </div></section>
     <Breadcrumbs items={[{ label: "행정사 소개" }]}/>
 
@@ -46,6 +47,11 @@ export default function AboutPage() {
     </div></section>
 
     <section className="section about-profile-section" id="profile"><div className="shell"><div className="about-section-heading"><p className="eyebrow">PROFILE</p><h2>김태훈 행정사를 소개합니다</h2><p>확인된 업무 범위와 상담·수행 원칙을 중심으로 안내합니다.</p></div><div className="about-profile-layout"><aside className="about-profile-name"><span>대표 행정사</span><h3>김태훈</h3><p>{siteConfig.name}</p><div className="about-profile-line"/></aside><dl className="about-profile-list"><div><dt>성명·직함</dt><dd>김태훈 대표 행정사</dd></div><div><dt>소속 사무소</dt><dd>가든 행정사사무소</dd></div><div><dt>전문 업무 분야</dt><dd>{services.map((service) => service.title).join(" · ")}</dd></div><div><dt>상담 및 수행 방식</dt><dd>상황과 자료를 먼저 확인하고, 상담부터 업무 수행과 진행 안내까지 직접 책임집니다.</dd></div><div><dt>행정정보 활동</dt><dd>홈페이지 블로그와 자주 묻는 질문을 통해 실무 중심 행정정보를 제공합니다.</dd></div></dl></div></div></section>
+
+    <section className="section about-activities-section" id="activities"><div className="shell about-activities-grid">
+      <figure><Image src={educationActivities[1].images[0].src} alt={educationActivities[1].images[0].alt} fill sizes="(max-width: 780px) calc(100vw - 32px), 520px" style={{ objectPosition: educationActivities[1].images[0].position }}/><figcaption>{educationActivities[1].images[0].caption}</figcaption></figure>
+      <div><p className="eyebrow">EDUCATION &amp; EXTERNAL ACTIVITIES</p><h2>교육·대외 활동</h2><p className="about-activities-lead">농업경영 행정의 실무 경험을 현장의 언어로 설명하고, 생활 속 AI 활용까지 교육으로 나누고 있습니다.</p><ul>{educationActivities.map((activity) => <li key={activity.slug}><span>{activity.category}</span><Link href={`/board/activities/${activity.slug}`}>{activity.title} <ArrowRight/></Link></li>)}</ul><Link className="button primary" href="/board/activities">교육 활동 전체 보기 <ArrowRight/></Link></div>
+    </div></section>
 
     <section className="section about-principles-section" id="principles"><div className="shell"><div className="about-section-heading light"><p className="eyebrow">WORK PRINCIPLES</p><h2>의뢰인이 안심할 수 있는 업무 원칙</h2></div><ol className="about-principles">{trustPrinciples.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol></div></section>
 
