@@ -27,9 +27,9 @@ export const serviceQueryMap: Record<string, (typeof contactServices)[number]> =
 };
 
 export const startupInterestOptions = ["블로그", "홈페이지", "스마트스토어", "복수 선택", "상담 후 결정"] as const;
-export const websitePackageOptions = ["베이직", "스탠다드", "어드밴스트", "미정"] as const;
+export const websitePackageOptions = ["베이직", "스탠다드", "프리미엄", "미정"] as const;
 export const websitePackageQueryMap: Record<string, (typeof websitePackageOptions)[number]> = {
-  basic: "베이직", standard: "스탠다드", advanced: "어드밴스트", undecided: "미정",
+  basic: "베이직", standard: "스탠다드", advanced: "프리미엄", undecided: "미정",
 };
 
 export type ContactFormValues = {
