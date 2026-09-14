@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, Building2, FileCheck2, HeartHandshake, MessageCircleQuestion, MonitorPlay, Scale, SearchCheck, ShieldCheck, Sprout, UserRoundCheck } from "lucide-react";
+import { ArrowRight, BookOpenText, BriefcaseBusiness, Building2, FileCheck2, Globe2, HeartHandshake, MessageCircleQuestion, MonitorPlay, Scale, SearchCheck, ShieldCheck, ShoppingBag, Sprout, UserRoundCheck } from "lucide-react";
 import { CTA } from "@/components/Common";
 import { OfficeLocation } from "@/components/OfficeLocation";
 import { blogPosts, faqs, notices, processSteps, services, siteConfig } from "@/data/site";
@@ -11,7 +11,7 @@ import { breadcrumbJsonLd, jsonLd, publicMetadata } from "@/lib/site";
 
 export const metadata: Metadata = publicMetadata({
   title: "김태훈 행정사 | 가든 행정사사무소",
-  description: "기업 인허가·인증, 농업경영 컨설팅, 노인복지사업 창업, 행정심판과 민원행정을 지원하는 가든 행정사사무소입니다.",
+  description: "기업 인허가·인증, 농업경영 컨설팅, 노인복지사업 창업, 행정심판과 창업마케팅을 상담하는 가든 행정사사무소입니다.",
   path: "/",
 });
 
@@ -58,6 +58,11 @@ export default function Home() {
     </section>
 
     <section className="section soft"><div className="shell"><div className="section-heading center"><p className="eyebrow">SERVICES</p><h2>주요 업무 안내</h2><p>내 상황에 가까운 업무를 선택하면 준비사항과 진행 절차를 확인할 수 있습니다.</p></div><div className="service-grid">{services.map((service, i) => { const Icon = icons[i]; return <article className="service-card" key={service.slug}><Icon/><h3>{service.title}</h3><p>{service.short}</p><Link href={service.detailPath}>자세히 보기 <ArrowRight/></Link></article>; })}</div><div className="center-action"><Link className="button outline" href="/services">전체 업무 분야 보기</Link></div></div></section>
+
+    <section className="section home-startup"><div className="shell home-startup-grid">
+      <div><p className="eyebrow">STARTUP MARKETING</p><h2>농장과 상품을 알리는<br/>온라인 기반도 함께 준비하세요</h2><p>청년 농업인의 창업 준비부터 블로그·홈페이지·스마트스토어 상담까지, 사업 단계와 예산에 맞는 채널을 안내합니다.</p><div className="button-row"><Link className="button primary" href="/startup-marketing">창업마케팅 자세히 보기 <ArrowRight/></Link><Link className="button outline" href="/contact?service=startup-marketing">상담하기</Link></div></div>
+      <div className="home-startup-channels" aria-label="창업마케팅 제공 채널"><span><BookOpenText/><b>블로그</b><small>사업과 상품 이야기</small></span><span><Globe2/><b>홈페이지</b><small>농장 소개와 문의</small></span><span><ShoppingBag/><b>스마트스토어</b><small>온라인 판매 준비</small></span></div>
+    </div></section>
 
     <section className="section home-activities"><div className="shell home-activities-grid">
       <div className="home-activities-heading"><p className="eyebrow">EDUCATION &amp; FIELD</p><h2>농업 현장에서 만나고,<br/>교육으로 함께합니다</h2></div>

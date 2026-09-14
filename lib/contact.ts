@@ -5,6 +5,7 @@ export const contactServices = [
   "농업경영 컨설팅",
   "노인복지사업 창업",
   "행정심판·민원행정",
+  "창업마케팅",
   "기타 문의",
 ] as const;
 
@@ -22,12 +23,23 @@ export const serviceQueryMap: Record<string, (typeof contactServices)[number]> =
   "agriculture-consulting": "농업경영 컨설팅",
   "senior-welfare-startup": "노인복지사업 창업",
   "administrative-appeal": "행정심판·민원행정",
+  "startup-marketing": "창업마케팅",
+};
+
+export const startupInterestOptions = ["블로그", "홈페이지", "스마트스토어", "복수 선택", "상담 후 결정"] as const;
+export const websitePackageOptions = ["베이직", "스탠다드", "어드밴스트", "미정"] as const;
+export const websitePackageQueryMap: Record<string, (typeof websitePackageOptions)[number]> = {
+  basic: "베이직", standard: "스탠다드", advanced: "어드밴스트", undecided: "미정",
 };
 
 export type ContactFormValues = {
   service: string;
   name: string;
   organization: string;
+  businessStage: string;
+  startupInterest: string;
+  websitePackage: string;
+  supportProgram: string;
   phone: string;
   email: string;
   title: string;
@@ -54,6 +66,8 @@ export function validateContact(values: ContactFormValues): ContactErrors {
   if (values.name.trim().length < 2) errors.name = "이름을 2자 이상 입력해 주세요.";
   if (!phonePattern.test(values.phone.trim())) errors.phone = "연락처를 숫자, 공백 또는 하이픈을 사용해 8자 이상 입력해 주세요.";
   if (values.email && !emailPattern.test(values.email.trim())) errors.email = "이메일 형식을 확인해 주세요.";
+  if (values.startupInterest && !startupInterestOptions.includes(values.startupInterest as (typeof startupInterestOptions)[number])) errors.startupInterest = "관심 서비스를 확인해 주세요.";
+  if (values.websitePackage && !websitePackageOptions.includes(values.websitePackage as (typeof websitePackageOptions)[number])) errors.websitePackage = "홈페이지 상품을 확인해 주세요.";
   if (values.title.trim().length < 2) errors.title = "문의 제목을 2자 이상 입력해 주세요.";
   const contentLength = values.content.trim().length;
   if (contentLength < 20 || contentLength > 2000) errors.content = "문의 내용은 20자 이상 2,000자 이하로 입력해 주세요.";

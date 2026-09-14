@@ -8,6 +8,7 @@ const staticPages = [
   { path: "/", modified: "2026-09-14", priority: 1 },
   { path: "/about", modified: "2026-09-14", priority: .8 },
   { path: "/services", modified: "2026-08-28", priority: .9 },
+  { path: "/startup-marketing", modified: "2026-09-14", priority: .8 },
   { path: "/cases", modified: "2026-09-02", priority: .7 },
   { path: "/blog", modified: "2026-08-20", priority: .8 },
   { path: "/board", modified: "2026-09-14", priority: .6 },

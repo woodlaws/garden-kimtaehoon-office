@@ -10,6 +10,9 @@ import {
   contactTimes,
   consultationMethods,
   serviceQueryMap,
+  startupInterestOptions,
+  websitePackageOptions,
+  websitePackageQueryMap,
   type ContactErrors,
   type ContactFormValues,
   validateContact,
@@ -19,7 +22,7 @@ import { publishedCaseExamples } from "@/data/case-examples";
 type ApiResult = { success?: boolean; receiptId?: string; message?: string; fields?: ContactErrors };
 
 const emptyValues: ContactFormValues = {
-  service: "", name: "", organization: "", phone: "", email: "", title: "", content: "",
+  service: "", name: "", organization: "", businessStage: "", startupInterest: "", websitePackage: "", supportProgram: "", phone: "", email: "", title: "", content: "",
   method: "", contactTime: "", referenceUrl: "", additionalNotes: "", privacyConsent: false,
   website: "", submissionId: "", sourcePage: "", pageUrl: "",
 };
@@ -27,6 +30,7 @@ const emptyValues: ContactFormValues = {
 export default function ContactApplicationForm() {
   const searchParams = useSearchParams();
   const initialService = serviceQueryMap[searchParams.get("service") || ""] || "";
+  const initialWebsitePackage = websitePackageQueryMap[searchParams.get("package") || ""] || "";
   const initialCase = publishedCaseExamples.find((item) => item.slug === searchParams.get("case"));
   const [service, setService] = useState<string>(initialService);
   const [errors, setErrors] = useState<ContactErrors>({});
@@ -45,6 +49,10 @@ export default function ContactApplicationForm() {
       service,
       name: String(data.get("name") || ""),
       organization: String(data.get("organization") || ""),
+      businessStage: String(data.get("businessStage") || ""),
+      startupInterest: String(data.get("startupInterest") || ""),
+      websitePackage: String(data.get("websitePackage") || ""),
+      supportProgram: String(data.get("supportProgram") || ""),
       phone: String(data.get("phone") || ""),
       email: String(data.get("email") || ""),
       title: String(data.get("title") || ""),
@@ -80,7 +88,7 @@ export default function ContactApplicationForm() {
       return;
     }
 
-    const signature = JSON.stringify([values.service, values.name, values.phone, values.title, values.content]);
+    const signature = JSON.stringify([values.service, values.name, values.phone, values.title, values.content, values.startupInterest, values.websitePackage]);
     if (lastSubmission.current?.signature === signature && Date.now() - lastSubmission.current.time < 60_000) {
       setStatus({ type: "error", message: "같은 내용의 문의가 처리 중입니다. 잠시 후 다시 시도해 주세요." });
       return;
@@ -123,6 +131,7 @@ export default function ContactApplicationForm() {
 
   const fieldError = (name: keyof ContactFormValues) => errors[name] ? <p className="contact-field-error" id={`${name}-error`}><AlertCircle/>{errors[name]}</p> : null;
   const describedBy = (name: keyof ContactFormValues) => errors[name] ? `${name}-error` : undefined;
+  const isStartupMarketing = service === "창업마케팅";
 
   return <form className="contact-application-form" ref={formRef} onSubmit={submit} noValidate>
     <div className="contact-form-heading"><p className="eyebrow">APPLICATION FORM</p><h2>상담 신청서</h2><p><span className="required-mark" aria-hidden="true">*</span> 표시는 필수 입력 항목입니다.</p></div>
@@ -135,14 +144,21 @@ export default function ContactApplicationForm() {
 
     <div className="contact-fields two">
       <div className="contact-field"><label htmlFor="name">이름 <span className="required-mark" aria-hidden="true">*</span><span className="sr-only">필수</span></label><input id="name" name="name" autoComplete="name" maxLength={80} aria-invalid={!!errors.name} aria-describedby={describedBy("name")}/>{fieldError("name")}</div>
-      <div className="contact-field"><label htmlFor="organization">회사명 또는 단체명 <span className="optional">선택</span></label><input id="organization" name="organization" autoComplete="organization" maxLength={120}/></div>
+      <div className="contact-field"><label htmlFor="organization">농장명 또는 상호·단체명 <span className="optional">선택</span></label><input id="organization" name="organization" autoComplete="organization" maxLength={120}/></div>
       <div className="contact-field"><label htmlFor="phone">연락처 <span className="required-mark" aria-hidden="true">*</span><span className="sr-only">필수</span></label><input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="예: 010-1234-5678" maxLength={30} aria-invalid={!!errors.phone} aria-describedby={describedBy("phone")}/>{fieldError("phone")}</div>
       <div className="contact-field"><label htmlFor="email">이메일 <span className="optional">선택</span></label><input id="email" name="email" type="email" inputMode="email" autoComplete="email" maxLength={160} aria-invalid={!!errors.email} aria-describedby={describedBy("email")}/>{fieldError("email")}</div>
       <div className="contact-field"><label htmlFor="method">희망 상담 방식 <span className="optional">선택</span></label><select id="method" name="method" aria-invalid={!!errors.method} aria-describedby={describedBy("method")}><option value="">선택해 주세요</option>{consultationMethods.map(item => <option key={item}>{item}</option>)}</select>{fieldError("method")}</div>
       <div className="contact-field"><label htmlFor="contactTime">연락 가능한 시간 <span className="optional">선택</span></label><select id="contactTime" name="contactTime" aria-invalid={!!errors.contactTime} aria-describedby={`contact-time-note ${describedBy("contactTime") || ""}`}><option value="">선택해 주세요</option>{contactTimes.map(item => <option key={item}>{item}</option>)}</select><small id="contact-time-note">연락 희망시간이며 상담 가능시간을 보장하지 않습니다.</small>{fieldError("contactTime")}</div>
     </div>
 
-    <div className="contact-field full"><label htmlFor="title">문의 제목 <span className="required-mark" aria-hidden="true">*</span><span className="sr-only">필수</span></label><input id="title" name="title" maxLength={120} defaultValue={initialCase ? `${initialCase.title} 관련 상담` : undefined} placeholder="문의 내용을 한 줄로 적어주세요" aria-invalid={!!errors.title} aria-describedby={describedBy("title")}/>{fieldError("title")}</div>
+    {isStartupMarketing && <fieldset className="startup-contact-fields"><legend>창업마케팅 상담 정보</legend><p>현재 정해진 범위만 선택해 주세요. 상담 후 변경할 수 있습니다.</p><div className="contact-fields two">
+      <div className="contact-field"><label htmlFor="businessStage">업종 및 창업 준비 상황 <span className="optional">선택</span></label><input id="businessStage" name="businessStage" maxLength={160} placeholder="예: 청년농업인, 가공상품 판매 준비 중"/></div>
+      <div className="contact-field"><label htmlFor="startupInterest">관심 서비스 <span className="optional">선택</span></label><select id="startupInterest" name="startupInterest" aria-invalid={!!errors.startupInterest} aria-describedby={describedBy("startupInterest")}><option value="">선택해 주세요</option>{startupInterestOptions.map(item => <option key={item}>{item}</option>)}</select>{fieldError("startupInterest")}</div>
+      <div className="contact-field"><label htmlFor="websitePackage">홈페이지 상품 <span className="optional">선택</span></label><select id="websitePackage" name="websitePackage" defaultValue={initialWebsitePackage} aria-invalid={!!errors.websitePackage} aria-describedby={describedBy("websitePackage")}><option value="">선택해 주세요</option>{websitePackageOptions.map(item => <option key={item}>{item}</option>)}</select>{fieldError("websitePackage")}</div>
+      <div className="contact-field"><label htmlFor="supportProgram">검토 중인 지원사업명 또는 공고 URL <span className="optional">선택</span></label><input id="supportProgram" name="supportProgram" maxLength={500} placeholder="사업명 또는 https:// 공고 주소"/></div>
+    </div></fieldset>}
+
+    <div className="contact-field full"><label htmlFor="title">문의 제목 <span className="required-mark" aria-hidden="true">*</span><span className="sr-only">필수</span></label><input id="title" name="title" maxLength={120} defaultValue={initialCase ? `${initialCase.title} 관련 상담` : initialService === "창업마케팅" ? "창업마케팅 상담" : undefined} placeholder="문의 내용을 한 줄로 적어주세요" aria-invalid={!!errors.title} aria-describedby={describedBy("title")}/>{fieldError("title")}</div>
     <div className="contact-field full"><label htmlFor="content">현재 상황 및 문의 내용 <span className="required-mark" aria-hidden="true">*</span><span className="sr-only">필수</span></label><textarea id="content" name="content" minLength={20} maxLength={2000} placeholder="현재 상황, 받은 문서와 날짜, 처리기한, 원하는 도움을 20자 이상 적어주세요." aria-invalid={!!errors.content} aria-describedby={`sensitive-note ${describedBy("content") || ""}`}/><p className="contact-sensitive" id="sensitive-note"><ShieldCheck/>주민등록번호, 여권번호, 계좌정보 등 민감한 개인정보는 입력하지 마세요. 관련 서류는 상담 후 안내된 방법으로 전달해주시기 바랍니다.</p>{fieldError("content")}</div>
     <div className="contact-field full"><label htmlFor="referenceUrl">참고 링크 <span className="optional">선택</span></label><input id="referenceUrl" name="referenceUrl" type="url" inputMode="url" placeholder="https://" maxLength={500} aria-invalid={!!errors.referenceUrl} aria-describedby={describedBy("referenceUrl")}/>{fieldError("referenceUrl")}</div>
     <div className="contact-field full"><label htmlFor="additionalNotes">개인정보가 포함되지 않은 추가 참고사항 <span className="optional">선택</span></label><textarea className="short" id="additionalNotes" name="additionalNotes" maxLength={500}/></div>
@@ -151,7 +167,7 @@ export default function ContactApplicationForm() {
     <div className="contact-consent">
       <label><input type="checkbox" name="privacyConsent" aria-invalid={!!errors.privacyConsent} aria-describedby={describedBy("privacyConsent")}/><span>상담 접수를 위한 개인정보 수집 및 이용에 동의합니다. <b>(필수)</b></span></label>
       {fieldError("privacyConsent")}
-      <details><summary>자세히 보기</summary><div><p><b>수집 항목</b> 이름, 연락처, 이메일(선택), 회사명(선택), 상담 분야, 문의 내용, 희망 상담 방식 및 시간, 참고 링크</p><p><b>수집 목적</b> 상담 요청 확인, 연락, 업무 가능 여부 검토 및 상담 이력 관리</p><p><b>보유 기간</b> {CONTACT_RETENTION_PERIOD}</p><p><b>동의 거부 권리</b> 동의하지 않을 권리가 있으나 필수정보 동의를 거부할 경우 온라인 상담 접수가 제한될 수 있습니다.</p><p><b>민감정보 제한</b> 주민등록번호, 여권번호, 계좌정보와 원본서류는 입력하거나 첨부하지 마세요.</p><Link href="/privacy">개인정보처리방침 전체 보기 →</Link></div></details>
+      <details><summary>자세히 보기</summary><div><p><b>수집 항목</b> 이름, 연락처, 이메일(선택), 농장명·상호·단체명(선택), 상담 분야, 문의 내용, 희망 상담 방식 및 시간, 참고 링크, 창업 준비 상황·관심 서비스·홈페이지 상품·지원사업 정보(선택)</p><p><b>수집 목적</b> 상담 요청 확인, 연락, 업무 가능 여부 검토 및 상담 이력 관리</p><p><b>보유 기간</b> {CONTACT_RETENTION_PERIOD}</p><p><b>동의 거부 권리</b> 동의하지 않을 권리가 있으나 필수정보 동의를 거부할 경우 온라인 상담 접수가 제한될 수 있습니다.</p><p><b>민감정보 제한</b> 주민등록번호, 여권번호, 계좌정보와 원본서류는 입력하거나 첨부하지 마세요.</p><Link href="/privacy">개인정보처리방침 전체 보기 →</Link></div></details>
     </div>
     <button className="button gold contact-submit" type="submit" disabled={busy} aria-busy={busy}>{busy ? <><LoaderCircle className="spin"/> 접수 내용을 저장하는 중</> : "상담 신청 접수하기"}</button>
     <p className="contact-submit-note">저장 API에서 정상 저장을 확인한 경우에만 접수 완료로 안내합니다.</p>

@@ -4,10 +4,11 @@ import { Suspense } from "react";
 import { AlertTriangle, Check, ClipboardList, FileCheck2, MessageSquareText, SearchCheck } from "lucide-react";
 import ContactApplicationForm from "@/components/ContactApplicationForm";
 import { Breadcrumbs } from "@/components/Common";
+import { siteConfig } from "@/data/site";
 import { breadcrumbJsonLd, jsonLd, publicMetadata } from "@/lib/site";
 
 const title = "상담 신청 | 김태훈 행정사";
-const description = "기업 인허가·인증, 농업경영, 노인복지사업 창업, 행정심판·민원행정 관련 상담을 신청할 수 있습니다.";
+const description = "기업 인허가·인증, 농업경영, 노인복지사업 창업, 행정심판·민원행정, 창업마케팅 관련 상담을 신청할 수 있습니다.";
 export const metadata: Metadata = publicMetadata({ title, description, path: "/contact", index: false });
 
 const consultationProcess = [
@@ -31,7 +32,7 @@ export default function ContactPage() {
       <p className="contact-process-notice"><AlertTriangle/>문의 접수는 업무 수임을 의미하지 않으며, 상담 내용과 업무 범위를 확인한 후 진행 여부가 결정됩니다.</p>
     </div></section>
     <section className="section contact-main"><div className="shell contact-layout">
-      {contactEnabled ? <Suspense fallback={<div className="contact-form-loading">상담 신청서를 불러오는 중입니다.</div>}><ContactApplicationForm/></Suspense> : <div className="contact-unavailable" role="status"><AlertTriangle/><p className="eyebrow">ONLINE RECEPTION</p><h2>온라인 상담 접수 준비 중입니다.</h2><p>현재 안전한 접수 채널을 점검하고 있습니다. 연결이 완료되기 전에는 이름, 연락처, 문의 내용을 입력받거나 저장하지 않습니다.</p><Link className="button outline" href="/services">업무 분야 먼저 확인하기</Link></div>}
+      {contactEnabled ? <Suspense fallback={<div className="contact-form-loading">상담 신청서를 불러오는 중입니다.</div>}><ContactApplicationForm/></Suspense> : <div className="contact-unavailable" role="status"><AlertTriangle/><p className="eyebrow">ONLINE RECEPTION</p><h2>온라인 상담 접수 준비 중입니다.</h2><p>현재 안전한 접수 채널을 점검하고 있습니다. 연결이 완료되기 전에는 이름, 연락처, 문의 내용을 입력받거나 저장하지 않습니다.</p><div className="button-row"><a className="button primary" href={siteConfig.phoneHref}>{siteConfig.phone} 전화 상담</a><Link className="button outline" href="/services">업무 분야 먼저 확인하기</Link></div></div>}
       <aside className="contact-guide"><div><p className="eyebrow">CONSULTATION GUIDE</p><h2>상담 전에 확인해주세요</h2><ul>{[
         "현재 상황을 시간순으로 정리하면 상담에 도움이 됩니다.",
         "이미 받은 통지서나 제출한 서류가 있다면 상담 시 말씀해주세요.",
