@@ -80,7 +80,7 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
               </a>
               <figcaption>{section.image.caption}<span>이미지를 누르면 크게 볼 수 있습니다.</span></figcaption>
             </figure>}
-            {section.links && <div className="article-reference-links">{section.links.map(link => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div>}
+            {section.links && <div className="article-reference-links">{section.links.map(link => link.url.startsWith("/") ? <Link key={link.url} href={link.url}>{link.label} →</Link> : <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div>}
           </section>)}
           <section id="checklist"><h2>상담 전 체크리스트</h2><ul className="checklist">{checklist.map(item => <li key={item}>{item}</li>)}</ul></section>
           <section id="faq"><h2>자주 묻는 질문</h2>{faqs.map(faq => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>

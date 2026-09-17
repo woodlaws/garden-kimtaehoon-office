@@ -1,5 +1,6 @@
 import { coreServices } from "@/data/core-services";
 import { liquorImportTradeNumberPost } from "@/data/blog/liquor-import-trade-number";
+import { liquorImportBusinessPlanPost } from "@/data/blog/liquor-import-business-plan";
 
 export const siteConfig = {
   name: "가든 행정사사무소",
@@ -389,6 +390,7 @@ export type BlogPost = {
   consultation?: { title: string; body: string; label: string };
 };
 export const blogPosts: BlogPost[] = [
+  liquorImportBusinessPlanPost,
   liquorImportTradeNumberPost,
   { slug: "consultation-checklist", category: "생활 행정", title: "행정사 상담 전 준비하면 좋은 자료 5가지", summary: "짧은 상담 시간에도 핵심을 정확히 전달하기 위한 준비사항을 정리했습니다.", date: "2026-08-20", updated: "2026-08-20", sections: [{ title: "처분서와 안내문을 모두 준비하세요", body: "앞면만 촬영하기보다 문서 전체와 받은 날짜를 확인할 수 있도록 준비하세요." }, { title: "사실관계는 시간순으로 적으세요", body: "언제, 누가, 무엇을 했는지 순서대로 적으면 쟁점을 빠르게 파악할 수 있습니다." }] },
   { slug: "permit-rejection", category: "각종 인허가", title: "인허가 신청이 반려되는 주요 원인과 확인 순서", summary: "형식 요건부터 시설 기준까지 신청 전에 살펴볼 항목을 안내합니다.", date: "2026-08-14", updated: "2026-08-18", sections: [{ title: "관할과 신청 유형을 먼저 확인합니다", body: "비슷해 보이는 영업이라도 근거 법령과 담당 부서가 다를 수 있습니다." }, { title: "보완 기한을 놓치지 마세요", body: "보완 요구를 받았다면 요구 항목과 제출 기한을 우선 확인해야 합니다." }] },

@@ -61,7 +61,10 @@ export const liquorImportTradeNumberPost: BlogPost = {
     {
       title: "발급 결과를 확인한 뒤 면허 준비로 이어갑니다",
       body: "신청 후에는 접수 상태와 보완 요청을 확인하고, 발급된 번호와 증빙을 사업자 자료와 함께 보관합니다. 처리기간은 접수 상황에 따라 확인해야 하므로 특정 일수 안에 발급된다고 전제해 수입 일정을 확정하지 마세요.\n\n이후에는 주류수입업 면허에 필요한 사업장·창고와 제출서류를 관할 세무서 기준으로 점검합니다. 수입할 주종, 국내 판매 방식, 준비된 사업장과 목표 일정을 정리해 두면 다음 절차를 검토하기가 수월합니다.",
-      links: [{ label: "주류 판매업 면허 신청의 법령상 기준", url: lawUrl }],
+      links: [
+        { label: "주류 판매업 면허 신청의 법령상 기준", url: lawUrl },
+        { label: "이어서 읽기: 주류수입면허 사업계획서 작성법", url: "/blog/liquor-import-business-plan" },
+      ],
     },
   ],
   checklist: [
