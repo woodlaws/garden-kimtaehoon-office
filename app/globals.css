@@ -477,3 +477,31 @@ body{overflow-x:clip}.hero-copy,.hero-visual{min-width:0}.hero-lead{overflow-wra
   .desktop-nav,.header-cta{display:none}
   .menu-button{display:grid;place-items:center;flex:0 0 auto;margin-left:auto}
 }
+
+/* Original blog evidence, kept at its natural aspect ratio. */
+.blog-photo-thumb{height:180px;position:relative;display:block;background:#edf3f8;overflow:hidden}
+.blog-photo-thumb img{width:100%;height:100%;object-fit:contain}
+.blog-photo-thumb>span{position:absolute;bottom:12px;left:14px;background:var(--navy);color:#fff;border-radius:4px;padding:3px 10px;font-size:.75rem;font-weight:750}
+.sourced-article .blog-title{max-width:960px}
+.sourced-article .blog-title h1{font-size:clamp(1.85rem,3.5vw,2.65rem);line-height:1.4}
+.sourced-article .blog-title>div{flex-wrap:wrap;gap:8px 18px}
+.article-body>section[id]{scroll-margin-top:115px}
+.key-summary ul{padding-left:21px;margin:12px 0 0}
+.key-summary li{margin:8px 0}
+.article-source-note{margin:22px 0 36px;padding:20px 22px;border:1px solid #ddd8c9;border-radius:8px;background:#fcfaf5;font-size:.84rem}
+.article-source-note p{margin:8px 0}
+.article-source-note a,.article-reference-links a,.article-references a{color:var(--navy);text-decoration:underline;text-underline-offset:4px}
+.article-evidence{margin:26px 0 18px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.article-evidence>a{display:block}
+.article-evidence img{width:100%;height:auto}
+.article-evidence figcaption{padding:13px 17px;background:var(--soft);font-size:.8rem;color:#526579;line-height:1.7}
+.article-evidence figcaption span{display:block;color:#65788c;font-size:.73rem;margin-top:4px}
+.article-reference-links{font-size:.86rem;display:flex;flex-direction:column;gap:8px}
+.article-body details+details{margin-top:10px}
+.article-references{padding:24px;border:1px solid var(--line);border-radius:8px}
+.article-body .article-references h2{font-size:1.1rem;margin:0 0 12px}
+.article-references ul{padding-left:20px;margin:0;font-size:.83rem}
+.article-references li+li{margin-top:10px}
+.article-consultation{background:#edf3f7;border-top:3px solid var(--navy);border-radius:8px;padding:28px}
+.article-consultation .button{font-size:.9rem}
+@media(max-width:600px){.sourced-article .blog-title{padding-top:44px;padding-bottom:28px}.sourced-article .article-body h2{font-size:1.35rem}.article-consultation{padding:22px 18px}.article-consultation .button-row{display:grid}.sourced-article .post-nav{grid-template-columns:1fr}.sourced-article .post-nav>span{display:none}.article-source-note{padding:18px}.article-evidence figcaption{padding:12px}}

@@ -10,7 +10,7 @@ const staticPages = [
   { path: "/services", modified: "2026-08-28", priority: .9 },
   { path: "/startup-marketing", modified: "2026-09-14", priority: .8 },
   { path: "/cases", modified: "2026-09-02", priority: .7 },
-  { path: "/blog", modified: "2026-08-20", priority: .8 },
+  { path: "/blog", modified: blogPosts.reduce((latest, post) => post.updated > latest ? post.updated : latest, "2026-08-20"), priority: .8 },
   { path: "/board", modified: "2026-09-14", priority: .6 },
   { path: "/board/activities", modified: "2026-09-14", priority: .7 },
   { path: "/board/notices", modified: "2026-08-20", priority: .6 },

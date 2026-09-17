@@ -1,4 +1,5 @@
 import { coreServices } from "@/data/core-services";
+import { liquorImportTradeNumberPost } from "@/data/blog/liquor-import-trade-number";
 
 export const siteConfig = {
   name: "가든 행정사사무소",
@@ -374,8 +375,21 @@ export const faqs = [
   ["처분을 받은 뒤 언제 상담해야 하나요?", "불복기간이 정해진 경우가 있으므로 처분서를 받은 날짜와 내용을 확인해 가능한 한 빠르게 상담하는 것이 좋습니다."],
 ] as const;
 
-export type BlogPost = { slug: string; category: string; title: string; summary: string; date: string; updated: string; sections: { title: string; body: string }[] };
+export type BlogImage = { src: string; alt: string; width: number; height: number; caption: string };
+export type BlogPost = {
+  slug: string; category: string; title: string; summary: string; date: string; updated: string;
+  sections: { title: string; body: string; image?: BlogImage; links?: { label: string; url: string }[] }[];
+  thumbnail?: BlogImage;
+  takeaways?: string[];
+  checklist?: string[];
+  faq?: { question: string; answer: string }[];
+  source?: { title: string; url: string; published: string; note: string };
+  references?: { title: string; url: string }[];
+  relatedServiceSlug?: string;
+  consultation?: { title: string; body: string; label: string };
+};
 export const blogPosts: BlogPost[] = [
+  liquorImportTradeNumberPost,
   { slug: "consultation-checklist", category: "생활 행정", title: "행정사 상담 전 준비하면 좋은 자료 5가지", summary: "짧은 상담 시간에도 핵심을 정확히 전달하기 위한 준비사항을 정리했습니다.", date: "2026-08-20", updated: "2026-08-20", sections: [{ title: "처분서와 안내문을 모두 준비하세요", body: "앞면만 촬영하기보다 문서 전체와 받은 날짜를 확인할 수 있도록 준비하세요." }, { title: "사실관계는 시간순으로 적으세요", body: "언제, 누가, 무엇을 했는지 순서대로 적으면 쟁점을 빠르게 파악할 수 있습니다." }] },
   { slug: "permit-rejection", category: "각종 인허가", title: "인허가 신청이 반려되는 주요 원인과 확인 순서", summary: "형식 요건부터 시설 기준까지 신청 전에 살펴볼 항목을 안내합니다.", date: "2026-08-14", updated: "2026-08-18", sections: [{ title: "관할과 신청 유형을 먼저 확인합니다", body: "비슷해 보이는 영업이라도 근거 법령과 담당 부서가 다를 수 있습니다." }, { title: "보완 기한을 놓치지 마세요", body: "보완 요구를 받았다면 요구 항목과 제출 기한을 우선 확인해야 합니다." }] },
   { slug: "administrative-disposition", category: "행정심판", title: "행정처분을 받았을 때 가장 먼저 확인할 사항", summary: "처분명, 처분일, 불복 절차와 기간을 놓치지 않도록 핵심을 짚습니다.", date: "2026-08-06", updated: "2026-08-06", sections: [{ title: "처분서 원문을 확보하세요", body: "처분 사유와 근거 조항, 불복 안내가 기재된 문서 전체가 필요합니다." }, { title: "기간 계산은 신중해야 합니다", body: "절차별 기간이 다를 수 있으므로 개별 사안에 맞는 확인이 필요합니다." }] },
