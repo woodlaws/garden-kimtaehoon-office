@@ -1,0 +1,86 @@
+{
+  "adaptedOn": "2026-09-18",
+  "scope": "Three latest posts; existing two posts preserved",
+  "sourcePosts": [
+    {
+      "id": "224412868440",
+      "date": "2026-09-16",
+      "slug": "liquor-retail-license"
+    },
+    {
+      "id": "224320993861",
+      "date": "2026-06-19",
+      "slug": "seoul-liquor-wine-fair-2026"
+    },
+    {
+      "id": "224311895485",
+      "date": "2026-06-11",
+      "slug": "liquor-retail-business-plan"
+    }
+  ],
+  "notes": [
+    "Original binary downloads unavailable. Preserved published images through screenshots.",
+    "No unverified market statistics or success guarantees added.",
+    "Fair explicitly described as a past event.",
+    "Retail procedure and business-plan posts have different focus and cross-links.",
+    "Government24 page last-content date is 2022.06.30; current law article 8 also checked on 2026.09.18."
+  ],
+  "images": [
+    {
+      "file": "public/images/blog/liquor-retail-license/cover.jpg",
+      "width": 936,
+      "height": 936,
+      "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA5MTVfNiAg/MDAxNzg5NDcxMDcxNzY4.oMbkYgotdpkwrFkH7M_PejhDQyNLxn2Y920TEYJxR40g.qlIcA4AD0OavaEoJu6y5iDO9z8MZaKYOdl0i15vLJZ8g.PNG/1.png?type=w966",
+      "captureMethod": "Browser screenshot with surrounding browser background removed; not original binary download",
+      "sha256": "57b9374ddd82bb64ca1f5df4b42f7efaf7e7f61c2803a5eed5d87dbf9f36dfb4"
+    },
+    {
+      "file": "public/images/blog/liquor-retail-license/requirements.jpg",
+      "width": 936,
+      "height": 936,
+      "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA5MTVfMjQg/MDAxNzg5NDcxMDgxNDc5.hQmSBD5DSvwmWTzE-5baRuB_axWlOqUjH-pHoS2Z2kEg.JYJg9dLEK1mWvsaqD1XJvHoH1bnY_jcT0PhvC3XFLNIg.PNG/2.png?type=w966",
+      "captureMethod": "Browser screenshot with surrounding browser background removed; not original binary download",
+      "sha256": "17adfd19dcf5b3458a701abb8de26e4d30161f2735c51af85a3562e1da056ac3"
+    },
+    {
+      "file": "public/images/blog/liquor-retail-license/planning.jpg",
+      "width": 936,
+      "height": 936,
+      "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA5MTVfMjI1/MDAxNzg5NDcxMDk5ODU2.0v9AZYw985ZymrxvXYemARQr_87smwy2W34sDHYmIx4g.o8IGonJ6BxPaCziXbcmGjo6JZRCIa05Qr69LcuUFkFsg.PNG/4.png?type=w966",
+      "captureMethod": "Browser screenshot with surrounding browser background removed; not original binary download",
+      "sha256": "d45b766d6f35ebcb0cb78c72dea18353a63ab47f4e560f2af0cabbd2a3e7580d"
+    },
+    {
+      "file": "public/images/blog/seoul-liquor-wine-fair-2026/scene-1.jpg",
+      "width": 936,
+      "height": 528,
+      "sourceUrl": "https://blogfiles.pstatic.net/MjAyNjA2MTlfMzAg/MDAxNzgxODQ1NTk1OTkz.L1DrofKPSpwZe9E_fMWt4c9yYBjS-pSZvkMOyhiGtNEg.KlV_DeCemQsclovTCSzWEP0y8TWfCUPn8LJqQ6HQSWsg.JPEG/KakaoTalk_20260619_111433947_15.jpg?type=w1",
+      "captureMethod": "Browser screenshot with surrounding browser background removed; not original binary download",
+      "sha256": "e76c68f946b413095c87b00daf62cb4c501f55a2d25137d9b8a7155b9981e955"
+    },
+    {
+      "file": "public/images/blog/seoul-liquor-wine-fair-2026/scene-2.jpg",
+      "width": 967,
+      "height": 545,
+      "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA2MTlfMTQ3/MDAxNzgxODUzMzU1NjQ4.P5KoJNIoPLcZqNenqYX-RD5emobx51EgrWvMlM5IY5og.RxxDRDZlAnfdGI9Z0mRTlNauOQQiR42dAGGCVjV2gEwg.JPEG/SE-3f98f592-1716-4096-be30-6ad491deb083.jpg?type=w966",
+      "captureMethod": "Browser screenshot with surrounding browser background removed; not original binary download",
+      "sha256": "270f97998de660382b937280c6c712f678cde9a5b5b2bdc68abd5165d37392d0"
+    },
+    {
+      "file": "public/images/blog/seoul-liquor-wine-fair-2026/scene-3.jpg",
+      "width": 966,
+      "height": 544,
+      "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA2MTlfMzAw/MDAxNzgxODUzNDQxODgz.cRzVke_0-esw3Pcux2l2bF91s8lwDpxukl7Puolnukkg.2Ozs9GOTpQrH3tbdGTs-tPHsj_PcCPGDHYiU_pHILAwg.JPEG/SE-79fbd3ed-720f-41e7-95f6-9409b6da2766.jpg?type=w966",
+      "captureMethod": "Browser screenshot with surrounding browser background removed; not original binary download",
+      "sha256": "60d29848fffb3fc7395b72c40fa117a2c6ee15c1be230cd651ca90b17ff86ab4"
+    },
+    {
+      "file": "public/images/blog/liquor-retail-business-plan/planning.jpg",
+      "width": 936,
+      "height": 936,
+      "sourceUrl": "https://postfiles.pstatic.net/MjAyNjA2MTBfMTMx/MDAxNzgxMDc3NDgyOTAw.gO2g7FC7SU6Or-boHBH5tmPK1rQMg-IP2qVzTokNc8sg.Wh92e9wtzyRX2OZqSHxMhdhPNBxxIKGh1-UCIhFFzSkg.PNG/5.png?type=w966",
+      "captureMethod": "Browser screenshot with surrounding browser background removed; not original binary download",
+      "sha256": "a7bc045f36ee1a67f2934f59bd15fa2229c6ab4d1fbe813cfac4c4aa0355f215"
+    }
+  ]
+}

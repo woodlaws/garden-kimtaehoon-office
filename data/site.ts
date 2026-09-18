@@ -1,6 +1,7 @@
 import { coreServices } from "@/data/core-services";
 import { liquorImportTradeNumberPost } from "@/data/blog/liquor-import-trade-number";
 import { liquorImportBusinessPlanPost } from "@/data/blog/liquor-import-business-plan";
+import { liquorRetailLicensePost, liquorRetailBusinessPlanPost, seoulLiquorWineFairPost } from "@/data/blog/liquor-retail-and-fair";
 
 export const siteConfig = {
   name: "가든 행정사사무소",
@@ -390,6 +391,9 @@ export type BlogPost = {
   consultation?: { title: string; body: string; label: string };
 };
 export const blogPosts: BlogPost[] = [
+  liquorRetailLicensePost,
+  seoulLiquorWineFairPost,
+  liquorRetailBusinessPlanPost,
   liquorImportBusinessPlanPost,
   liquorImportTradeNumberPost,
   { slug: "consultation-checklist", category: "생활 행정", title: "행정사 상담 전 준비하면 좋은 자료 5가지", summary: "짧은 상담 시간에도 핵심을 정확히 전달하기 위한 준비사항을 정리했습니다.", date: "2026-08-20", updated: "2026-08-20", sections: [{ title: "처분서와 안내문을 모두 준비하세요", body: "앞면만 촬영하기보다 문서 전체와 받은 날짜를 확인할 수 있도록 준비하세요." }, { title: "사실관계는 시간순으로 적으세요", body: "언제, 누가, 무엇을 했는지 순서대로 적으면 쟁점을 빠르게 파악할 수 있습니다." }] },
