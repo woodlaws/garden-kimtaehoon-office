@@ -1,0 +1,57 @@
+{
+  "slug": "liquor-import-food-registration",
+  "sourceTitle": "수입주류도매 사업을 위한 주류수입면허, 수입식품등 수입판매업 안내",
+  "sourceUrl": "https://blog.naver.com/thkim247/223667588614",
+  "sourcePublished": "2024-11-21",
+  "adaptedOn": "2026-09-18",
+  "officialSourcesCheckedOn": "2026-09-18",
+  "officialSources": [
+    "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=385250&mode=2&ofiClsCd=350123",
+    "https://www.law.go.kr/LSW/lumLsLinkPop.do?chrClsCd=010202&lspttninfSeq=126970",
+    "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=385206&mode=2&ofiClsCd=350123"
+  ],
+  "editorialNotes": [
+    "식품 영업등록·신규교육·해외제조업소 등록·수입 건별 신고 중심으로 재구성.",
+    "신규4시간·정기3시간을 식약처 공식답변과 대조.",
+    "원문의 사무실 면적 예시와 3일 등록 안내를 모든 신청의 보장으로 표현하지 않음.",
+    "원본의 흐림 처리를 보존하고 개별 사진을 현재 등록 적합성이나 면허 취득 증빙으로 설명하지 않음."
+  ],
+  "images": [
+    {
+      "path": "public/images/blog/liquor-import-food-registration/cover.png",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNDExMjBfMjg1/MDAxNzMyMDk1MzE3ODM0.TBposAwqzvNCV-4-2kzl9qHCrkd2SRIQYQHKbdMwXycg.PuH4XDhVO5YDo4GuMekQ_a0wL9I0lq_JGaxUC8RpMEUg.PNG/003.png?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/223667588614",
+      "width": 966,
+      "height": 966,
+      "sha256": "26171cff0bf98f7137898b96ca0a8e40aeed61391afe41e5e09d0aa42f7d1dd7",
+      "modified": false
+    },
+    {
+      "path": "public/images/blog/liquor-import-food-registration/warehouse.jpg",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNDExMjBfMTgz/MDAxNzMyMDk1NDEzNjU2.W_cOqotsfdtAwQ6fBnwJqxed9D_7m0BITDhNYgRYnl4g.NzFuN8RchiKl9ynPvYuqZDtaUeVg-xpBzRjLIv12hNYg.JPEG/SE-66732478-636a-4641-b491-d2d3852f3d6c.jpg?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/223667588614",
+      "width": 966,
+      "height": 544,
+      "sha256": "6f3d8c3fb0cba9d37d751bcc5f1b5310b566665697d696177bad39655664f663",
+      "modified": false
+    },
+    {
+      "path": "public/images/blog/liquor-import-food-registration/wine-display.jpg",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNDExMjBfMTQ3/MDAxNzMyMDk1MjgxMDE4.zRVYKY0YXy0eDOU2kHMbDa5jn9Zh4B5_SFHasMqHl9Eg.7XVEojUrBQP8lrGLIS5u5Q7dToiTO6iXG80Kjch1RZEg.JPEG/SE-a2aa3e53-8633-4c5f-8ac9-455c7b86715e.jpg?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/223667588614",
+      "width": 966,
+      "height": 643,
+      "sha256": "4379fb9bb93624949d032adc6548b836494415d5492e4e6aa1c8e232fe22ddc8",
+      "modified": false
+    },
+    {
+      "path": "public/images/blog/liquor-import-food-registration/product-display.jpg",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNDExMjBfMjU3/MDAxNzMyMDk1MzAwOTcx.N2mtRzNrM1Zeu-EP-pZTbJtIXgaNtYcnkZnlkXongusg.CUItfBa5p0LbBwRrPueh0eHhbUtch2e95-wmP8i7O40g.JPEG/SE-4a11ee85-89df-4c75-916e-24cfb2784a2e.jpg?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/223667588614",
+      "width": 966,
+      "height": 643,
+      "sha256": "d54fadfaa2839a48f4123ed418a30543407afd6be209bc0922f8b63bb8acd8b2",
+      "modified": false
+    }
+  ]
+}

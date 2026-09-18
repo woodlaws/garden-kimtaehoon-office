@@ -1,0 +1,56 @@
+{
+  "slug": "liquor-import-license-warehouse",
+  "sourceTitle": "주류수입면허 발급 핵심 포인트! 전문 행정사가 알려드립니다.",
+  "sourceUrl": "https://blog.naver.com/thkim247/224176479475",
+  "sourcePublished": "2026-02-09",
+  "adaptedOn": "2026-09-18",
+  "officialSourcesCheckedOn": "2026-09-18",
+  "officialSources": [
+    "https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=00&joNo=0008&lsiSeq=287539&urlMode=lsScJoRltInfoR",
+    "https://m.easylaw.go.kr/MOB/CsmInfoRetrieve.laf?ccfNo=1&cciNo=2&cnpClsNo=1&csmSeq=2034",
+    "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=385250&mode=2&ofiClsCd=350123"
+  ],
+  "editorialNotes": [
+    "신청 주체·창고 계약·서류 일치·식품 절차 순서로 재구성.",
+    "22㎡ 기준은 주정 외 주류수입업에 한정하여 공식 생활법령정보와 대조.",
+    "특정 건축물 용도만 허용된다는 일률적 주장, 모든 법인 임원에 대한 동일한 결격 적용, 경험상의 처리기간을 확정 요건으로 전재하지 않음."
+  ],
+  "images": [
+    {
+      "path": "public/images/blog/liquor-import-license-warehouse/cover.png",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNjAyMDhfMTQ2/MDAxNzcwNTU0NzkzNDA4.-FFG5ExeOLthMtEyGcn1gbg6A8Mc2VM1z-9LkZ5tLwAg.apAiU8fmaI6SHJSQgxqK5kOq3H3fGdgYvl9IVGdTRx8g.PNG/1.png?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/224176479475",
+      "width": 966,
+      "height": 966,
+      "sha256": "7271668cd8092febd571e4f17b4b82ee4ebc393dc5b32f8cc6aaaf92ea5d80af",
+      "modified": false
+    },
+    {
+      "path": "public/images/blog/liquor-import-license-warehouse/individual-business.png",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNjAyMDhfMSAg/MDAxNzcwNTU0ODE3ODU2.Leo5XKEUkKQb2G__wlvkvjDrGjAE_6DTP9-reqh3Qgcg.SKCAB5Oodd5b_HWGKBiQmySnNNIsHd1K1LTgWZx9TLcg.PNG/2.png?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/224176479475",
+      "width": 966,
+      "height": 966,
+      "sha256": "6ee10b1b20abfa544ae8bb3d7eaad1ab2a2db2a7bb63c9a23052bb21e6e1c924",
+      "modified": false
+    },
+    {
+      "path": "public/images/blog/liquor-import-license-warehouse/requirements.png",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNjAyMDhfNzUg/MDAxNzcwNTU0ODI2Nzg4.PUHz0cWnftQ4fViLTvYH7ZwzIiCyN8jQEJK0dtz0VbMg.6_n6wxv4VNYDn7tKF7NMRTAIdPGEckn_jWq45dA7f7kg.PNG/3.png?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/224176479475",
+      "width": 966,
+      "height": 966,
+      "sha256": "c17b988db64836be5e5e51ee3b87cbc953e3a58d196f615e19ecbc8bbceaf617",
+      "modified": false
+    },
+    {
+      "path": "public/images/blog/liquor-import-license-warehouse/review-checklist.png",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNjAyMDhfMjUy/MDAxNzcwNTU0ODQyMTc0.aBHGefsoolKKRHfwSXoWEN4bYWpFDj12ZnT5DvdQHf4g.RMXaIqSaaG67ke7XBwRUgJz7rwDdYRdHuKn7rEkmVAUg.PNG/6.png?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/224176479475",
+      "width": 966,
+      "height": 966,
+      "sha256": "b29a01305891bf8a77434f7ea17a3345636d11f38922fc44ccd014e4065d5da5",
+      "modified": false
+    }
+  ]
+}

@@ -2,6 +2,9 @@ import { coreServices } from "@/data/core-services";
 import { liquorImportTradeNumberPost } from "@/data/blog/liquor-import-trade-number";
 import { liquorImportBusinessPlanPost } from "@/data/blog/liquor-import-business-plan";
 import { liquorRetailLicensePost, liquorRetailBusinessPlanPost, seoulLiquorWineFairPost } from "@/data/blog/liquor-retail-and-fair";
+import { liquorImportLicenseWarehousePost } from "@/data/blog/liquor-import-license-warehouse";
+import { smallBreweryLicensePost } from "@/data/blog/small-brewery-license";
+import { liquorImportFoodRegistrationPost } from "@/data/blog/liquor-import-food-registration";
 
 export const siteConfig = {
   name: "가든 행정사사무소",
@@ -391,6 +394,9 @@ export type BlogPost = {
   consultation?: { title: string; body: string; label: string };
 };
 export const blogPosts: BlogPost[] = [
+  liquorImportLicenseWarehousePost,
+  smallBreweryLicensePost,
+  liquorImportFoodRegistrationPost,
   liquorRetailLicensePost,
   seoulLiquorWineFairPost,
   liquorRetailBusinessPlanPost,

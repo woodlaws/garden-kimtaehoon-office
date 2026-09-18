@@ -1,0 +1,47 @@
+{
+  "slug": "small-brewery-license",
+  "sourceTitle": "양조장 창업 시 필수! 소규모 주류제조업면허 발급 안내",
+  "sourceUrl": "https://blog.naver.com/thkim247/223783075506",
+  "sourcePublished": "2025-03-05",
+  "adaptedOn": "2026-09-18",
+  "officialSourcesCheckedOn": "2026-09-18",
+  "officialSources": [
+    "https://nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=239086&mi=41131",
+    "https://www.nts.go.kr/llsc/na/ntt/selectNttList.do?bbsId=22754&mi=1500"
+  ],
+  "editorialNotes": [
+    "제품·설비·공간·판매·신청 순서로 재구성.",
+    "소규모 대상 주종, 제조장별 요건, 신청 경로를 국세청 안내와 대조.",
+    "2024 행사 사진을 새 방문이나 면허 취득 실적으로 제시하지 않음.",
+    "원문의 OEM 요건, 조건부면허 이행기간, 특정 건축물 용도 주장은 공식 확인 범위 밖이므로 구체적 요건으로 전재하지 않음."
+  ],
+  "images": [
+    {
+      "path": "public/images/blog/small-brewery-license/cover.png",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNTAzMDRfMTcz/MDAxNzQxMDUyMTQyMDk5.zfqm1tEzbidYLTTqFUqgnwFlJbEJbwM3q57JJY3TwkEg.PD18k18brrErANm4P2RFKjNquQIjifWNPOPQq4E1JFUg.PNG/SE-e217ea3b-027c-49dc-bce4-1faeabd9eefb.png?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/223783075506",
+      "width": 900,
+      "height": 900,
+      "sha256": "8d637c7d4cad15bd06f487ef62afea2fdfdc2f8e356a8264d71d96605de9a09f",
+      "modified": false
+    },
+    {
+      "path": "public/images/blog/small-brewery-license/festival-scene.jpg",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNTAzMDRfMjIz/MDAxNzQxMDUyOTgxMDI1.skXq3Gy1N0gShtUVmhcxxHbJzFlhBCi3HBvJz0ijFWYg.GzNBPyJCaND7mbwLPK1hk1MrrkgjWf-f1WNN2kGI9Xog.JPEG/SE-55298df6-2187-484a-90c9-b1b398391c24.jpg?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/223783075506",
+      "width": 900,
+      "height": 506,
+      "sha256": "15b4278b612e632b4b2d00396f205d8384aedbc56cf5adb35f2173a5da043c0f",
+      "modified": false
+    },
+    {
+      "path": "public/images/blog/small-brewery-license/license-guide.png",
+      "sourceImageUrl": "https://postfiles.pstatic.net/MjAyNTAzMDRfOCAg/MDAxNzQxMDc3ODk0NTM3.19igvPuwvRcTSO0hEcqJhX0J8WrUiSq2Z2yBgVY83HMg.5fe0KPwURNQelh1czYF5J9QyJb9evBPXxoIR8QsHmwIg.PNG/%EC%A0%9C%EB%AA%A9%EC%9D%84_%EC%9E%85%EB%A0%A5%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94_-002_(1).png?type=w966",
+      "sourceArticleUrl": "https://blog.naver.com/thkim247/223783075506",
+      "width": 966,
+      "height": 966,
+      "sha256": "f7d38747dccf372c50c23e53ec9d8f6ef29e68d8ca08a2305d2c5b25edfddfb9",
+      "modified": false
+    }
+  ]
+}
