@@ -73,6 +73,13 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
           {post.sections.map((section, i) => <section id={`section-${i + 1}`} key={section.title}>
             <h2>{i + 1}. {section.title}</h2>
             {section.body.split("\n\n").map((paragraph, j) => <p key={j}>{paragraph}</p>)}
+            {section.table && <div className="article-data-table" role="region" aria-label={section.table.caption} tabIndex={0}>
+              <table>
+                <caption>{section.table.caption}</caption>
+                <thead><tr>{section.table.headers.map(header => <th scope="col" key={header}>{header}</th>)}</tr></thead>
+                <tbody>{section.table.rows.map((row, rowIndex) => <tr key={rowIndex}>{row.map((cell, cellIndex) => cellIndex === 0 ? <th scope="row" key={cellIndex}>{cell}</th> : <td key={cellIndex}>{cell}</td>)}</tr>)}</tbody>
+              </table>
+            </div>}
             {!post.source && <p>관련 문서의 날짜와 전체 내용을 확인하고, 기관 안내가 있다면 제출 기한과 요구 항목을 따로 표시해 두는 것이 좋습니다.</p>}
             {section.image && <figure className="article-evidence">
               <a href={section.image.src} target="_blank" rel="noopener noreferrer" aria-label={`${section.image.alt} 크게 보기 (새 창)`}>
@@ -86,7 +93,7 @@ export default async function BlogDetail({ params }: { params: Promise<{ slug: s
           <section id="faq"><h2>자주 묻는 질문</h2>{faqs.map(faq => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           {post.references && <section className="article-references"><h2>공식 확인 자료</h2><ul>{post.references.map(reference => <li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.title} ↗</a></li>)}</ul></section>}
           <div className="disclaimer">{siteConfig.notice}</div>
-          {post.consultation ? <section className="article-consultation"><p className="eyebrow">김태훈 행정사 · 가든 행정사사무소</p><h2>{post.consultation.title}</h2><p>{post.consultation.body}</p><div className="button-row"><Link className="button primary" href="/contact">{post.consultation.label}</Link><a className="button outline" href={siteConfig.phoneHref}>전화 {siteConfig.phone}</a></div><Link className="text-link" href={relatedService.detailPath}>관련 인허가 업무 안내 →</Link></section> : <div className="related-service"><small>관련 업무 안내</small><h2>{relatedService.title}</h2><p>{relatedService.intro}</p><Link className="button outline" href={relatedService.detailPath}>업무 안내 보기</Link></div>}
+          {post.consultation ? <section className="article-consultation"><p className="eyebrow">김태훈 행정사 · 가든 행정사사무소</p><h2>{post.consultation.title}</h2><p>{post.consultation.body}</p><div className="button-row"><Link className="button primary" href={`/contact?service=${relatedService.consultationQuery}`}>{post.consultation.label}</Link><a className="button outline" href={siteConfig.phoneHref}>전화 {siteConfig.phone}</a></div><Link className="text-link" href={relatedService.detailPath}>관련 업무 안내 →</Link></section> : <div className="related-service"><small>관련 업무 안내</small><h2>{relatedService.title}</h2><p>{relatedService.intro}</p><Link className="button outline" href={relatedService.detailPath}>업무 안내 보기</Link></div>}
           <nav className="post-nav" aria-label="다른 블로그 글">
             {prev ? <Link href={`/blog/${prev.slug}`}><small>이전 글</small><b>{prev.title}</b></Link> : <span />}
             {next && <Link href={`/blog/${next.slug}`}><small>다음 글</small><b>{next.title}</b></Link>}

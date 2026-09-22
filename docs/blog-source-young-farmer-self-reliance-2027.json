@@ -1,0 +1,103 @@
+{
+  "slug": "young-farmer-self-reliance-2027",
+  "category": "농업 경영 컨설팅",
+  "source": {
+    "title": "2026년 청년농업인 자립기반구축 지원사업, 1억 원 보조금 완벽 대비 가이드",
+    "url": "https://blog.naver.com/thkim247/224410356222",
+    "published": "2026-09-14",
+    "retrieved": "2026-09-22"
+  },
+  "editorialChanges": [
+    "원문이 설명한 사업을 2026년 하반기에 모집 중인 2027년도 경북 사업의 공식 공고로 최신화",
+    "총사업비 1억 원과 보조금 7천만 원, 자부담 3천만 원을 구분",
+    "출생일 기준을 1987-01-01 이후로 정리",
+    "접수일은 안동 2026-09-23, 의성 2026-10-02, 경주 2026-09-18로 구분",
+    "확인되지 않은 과거 세부 평가배점과 발표시간은 적용하지 않음"
+  ],
+  "images": [
+    {
+      "originalPosition": 3,
+      "url": "https://postfiles.pstatic.net/MjAyNjA5MTNfMjg3/MDAxNzg5Mjk1ODUzMDU1.ZgGbdKsdwmMxRlKykAw5xBdzFQYu3lUgEfiPzfKQm4og.9t-xYY0xmtSlV1rbWzf2PR7YkZ6peBUbucp-K2G9Fmgg.PNG/KakaoTalk_20260911_160814096_03.png?type=w966",
+      "localPath": "public/images/blog/young-farmer-self-reliance-2027/support-fields.png",
+      "width": 966,
+      "height": 966,
+      "sha256": "777c0dffad89e6672799239a77f421a1f07a1393a5db1a8e48e8d8685e59aba1",
+      "transformation": "none"
+    },
+    {
+      "originalPosition": 5,
+      "url": "https://postfiles.pstatic.net/MjAyNjA5MTNfMjk0/MDAxNzg5Mjk1ODY5NTg0.469MX2GVJ0mYIR1oIKElGKv4PsRSWzu1FxC50G0PhBIg.AezhCpZ_PbyE92AmYCQZ6lfMWF_ZBRJ1_upROJ7ZwuMg.PNG/KakaoTalk_20260911_160814096.png?type=w966",
+      "localPath": "public/images/blog/young-farmer-self-reliance-2027/business-plan-checklist.png",
+      "width": 966,
+      "height": 966,
+      "sha256": "6264e357ce9a42ce34241c4cdd090c400582a981d2e64e57d868c311320a1b18",
+      "transformation": "none"
+    },
+    {
+      "originalPosition": 6,
+      "url": "https://postfiles.pstatic.net/MjAyNjA5MTNfMjcx/MDAxNzg5Mjk1Njg0NzY3.F_dy37zr3KPquL3RXv02izZ6DUB2BtrH8aL4bMW6GRQg.7hsAaO1BsnxxooAo0U_PRFkWvjimTzwaNtAx96pO74kg.PNG/%EB%86%8D%EC%97%85%EA%B2%BD%EC%98%81.png?type=w966",
+      "localPath": "public/images/blog/young-farmer-self-reliance-2027/kim-taehoon-farm.png",
+      "width": 966,
+      "height": 686,
+      "sha256": "22d3f1a3b0fc84bbf367dfb020112cb0e67b1655216ee14a53041cf098307fb0",
+      "transformation": "none"
+    }
+  ],
+  "excludedImages": [
+    {
+      "originalPosition": 1,
+      "reason": "2026년 사업연도가 이미지에 포함되어 최신 글과 혼동 가능"
+    },
+    {
+      "originalPosition": 2,
+      "reason": "과거 출생일 기준과 지역 구분 없는 일정 포함"
+    },
+    {
+      "originalPosition": 4,
+      "reason": "최신 공식 평가표로 세부 배점을 확인하지 못하여 제외"
+    }
+  ],
+  "verifiedReferences": [
+    {
+      "url": "https://www.andong.go.kr/portal/saeol/gosi/view.do?isLinkage=Y&mId=0401020100&notAncmtMgtNo=64410",
+      "verified": "2026-09-22",
+      "claims": [
+        "2027년 사업",
+        "총사업비 1억원, 도비 2100만원, 지방비 4900만원, 자부담 3000만원",
+        "2026-08-24~2026-09-23 접수",
+        "제출자료"
+      ]
+    },
+    {
+      "url": "https://www.usc.go.kr/ko/page.do?board_code=04&cmd=2&mnu_uid=157&not_ancmt_mgt_no=40357",
+      "verified": "2026-09-22",
+      "claims": [
+        "2027년 사업",
+        "도비21% 시군비49% 자부담30%",
+        "1987-01-01 이후 출생",
+        "2026-10-02 마감",
+        "서면·발표평가 및 제출자료"
+      ]
+    },
+    {
+      "url": "https://gyeongju.go.kr/open_content/ko/page.do?mnu_uid=423&parm_bod_uid=329718&step=258",
+      "verified": "2026-09-22",
+      "claims": [
+        "2027년 사업",
+        "1987-01-01 이후 출생",
+        "경영주 직접 영농",
+        "2026-09-18 마감"
+      ]
+    },
+    {
+      "url": "https://www.rda.go.kr/board/board.do?boardId=farmlcltinfo&dataNo=100000812674&mode=updateCnt&prgId=day_farmlcltinfoEntry",
+      "verified": "2026-09-22",
+      "claims": [
+        "경상북도 사업",
+        "생산기반 가공유통 체험관광 브랜드육성",
+        "경북거주 청년농업인 경영주 직접영농",
+        "서면평가와 발표평가"
+      ]
+    }
+  ]
+}

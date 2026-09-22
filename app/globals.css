@@ -505,3 +505,14 @@ body{overflow-x:clip}.hero-copy,.hero-visual{min-width:0}.hero-lead{overflow-wra
 .article-consultation{background:#edf3f7;border-top:3px solid var(--navy);border-radius:8px;padding:28px}
 .article-consultation .button{font-size:.9rem}
 @media(max-width:600px){.sourced-article .blog-title{padding-top:44px;padding-bottom:28px}.sourced-article .article-body h2{font-size:1.35rem}.article-consultation{padding:22px 18px}.article-consultation .button-row{display:grid}.sourced-article .post-nav{grid-template-columns:1fr}.sourced-article .post-nav>span{display:none}.article-source-note{padding:18px}.article-evidence figcaption{padding:12px}}
+
+
+/* Structured comparisons in sourced blog articles. */
+.article-data-table{max-width:100%;overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:8px;background:#fff}
+.article-data-table table{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.65}
+.article-data-table caption{text-align:left;padding:14px 16px;font-weight:750;color:var(--navy);background:var(--soft)}
+.article-data-table th,.article-data-table td{text-align:left;vertical-align:top;padding:13px 16px;border-top:1px solid var(--line);overflow-wrap:anywhere}
+.article-data-table thead th{background:var(--navy);color:#fff}
+.article-data-table tbody th{min-width:90px;color:var(--navy)}
+.article-data-table:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:600px){.article-data-table th,.article-data-table td{padding:11px 10px}.article-data-table table{font-size:.9rem}}

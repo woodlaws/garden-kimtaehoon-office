@@ -1,4 +1,5 @@
 import { coreServices } from "@/data/core-services";
+import { youngFarmerSelfReliancePost } from "@/data/blog/young-farmer-self-reliance-2027";
 import { liquorImportTradeNumberPost } from "@/data/blog/liquor-import-trade-number";
 import { liquorImportBusinessPlanPost } from "@/data/blog/liquor-import-business-plan";
 import { liquorRetailLicensePost, liquorRetailBusinessPlanPost, seoulLiquorWineFairPost } from "@/data/blog/liquor-retail-and-fair";
@@ -383,7 +384,7 @@ export const faqs = [
 export type BlogImage = { src: string; alt: string; width: number; height: number; caption: string };
 export type BlogPost = {
   slug: string; category: string; title: string; summary: string; date: string; updated: string;
-  sections: { title: string; body: string; image?: BlogImage; links?: { label: string; url: string }[] }[];
+  sections: { title: string; body: string; image?: BlogImage; table?: { caption: string; headers: string[]; rows: string[][] }; links?: { label: string; url: string }[] }[];
   thumbnail?: BlogImage;
   takeaways?: string[];
   checklist?: string[];
@@ -394,6 +395,7 @@ export type BlogPost = {
   consultation?: { title: string; body: string; label: string };
 };
 export const blogPosts: BlogPost[] = [
+  youngFarmerSelfReliancePost,
   liquorImportLicenseWarehousePost,
   smallBreweryLicensePost,
   liquorImportFoodRegistrationPost,

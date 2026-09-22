@@ -72,7 +72,7 @@ export const coreServices: CoreService[] = [
     icon: "sprout",
     consultationQuery: "agriculture",
     detailPath: "/services/agriculture-consulting",
-    blogCategories: ["농업경영"],
+    blogCategories: ["농업 경영 컨설팅", "농업경영"],
     order: 2,
     intro: "농업경영은 영농계획뿐 아니라 지원사업, 농지, 사업자등록, 온라인 판매 등 다양한 행정절차와 연결됩니다. 가든 행정사사무소는 농업인의 실제 사업계획과 현장 상황을 살펴보고 필요한 절차와 준비 방향을 함께 검토합니다.",
     heroTitle: "농업의 시작과 성장을 함께하는 농업경영 행정 컨설팅",
