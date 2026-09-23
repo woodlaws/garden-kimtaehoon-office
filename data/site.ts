@@ -6,6 +6,7 @@ import { liquorRetailLicensePost, liquorRetailBusinessPlanPost, seoulLiquorWineF
 import { liquorImportLicenseWarehousePost } from "@/data/blog/liquor-import-license-warehouse";
 import { smallBreweryLicensePost } from "@/data/blog/small-brewery-license";
 import { liquorImportFoodRegistrationPost } from "@/data/blog/liquor-import-food-registration";
+import { agriculturalBusinessRegistrationGuidePost } from "@/data/blog/agricultural-business-registration-guide";
 
 export const siteConfig = {
   name: "가든 행정사사무소",
@@ -395,6 +396,7 @@ export type BlogPost = {
   consultation?: { title: string; body: string; label: string };
 };
 export const blogPosts: BlogPost[] = [
+  agriculturalBusinessRegistrationGuidePost,
   youngFarmerSelfReliancePost,
   liquorImportLicenseWarehousePost,
   smallBreweryLicensePost,
